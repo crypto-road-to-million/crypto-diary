@@ -1,0 +1,19 @@
+{
+  "name": "gulp-dev",
+  "version": "1.0.0",
+  "description": "Crypto Diary WordPress theme gulp development",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paagr/crypto-diary.git"
+  },
+  "author": "@paolomasonnet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paagr/crypto-diary/issues"
+  },
+  "homepage": "https://github.com/paagr/crypto-diary#readme"
+}
