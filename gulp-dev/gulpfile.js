@@ -2,31 +2,29 @@ const {
   src,
   dest,
   watch,
-  series,
-  parallel
+  // series,
+  // parallel
 } = require('gulp');
 
 const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const image = require('gulp-image');
 const jshint = require('gulp-jshint');
 const stylish = require('jshint-stylish');
 const browserSync = require('browser-sync').create();
-var replace = require('gulp-replace');
 
 // theme name
-var themename = 'cd';
+const themename = 'cd';
 
-var root = '../' + themename + '/',
-  scss = root + 'assets/sass/',
-  js = root + 'assets/js/',
-  img = root + 'assets/images/',
-  languages = root + 'languages/';
+const root = '../' + themename + '/',
+  scss = 'sass/',
+  js = 'js/',
+  img = 'images/';
 
 function scssTask() {
-  return src(scss + 'style.scss')
+  return src(scss + 'app.scss')
     .pipe(sourcemaps.init()) // initialize sourcemaps first
     .pipe(sass({
       outputStyle: 'expanded',
@@ -34,21 +32,23 @@ function scssTask() {
       indentWidth: '1'
     }).on('error', sass.logError)) // compile SCSS to CSS
     .pipe(postcss(autoprefixer()))
-    .pipe(sourcemaps.write(scss + 'maps'))
-    .pipe(dest(root));
+    .pipe(sourcemaps.write('maps'))
+    .pipe(dest(root + '/assets/css/'));
 }
 
 function jsTask() {
   return src([js + '*.js'])
     .pipe(jshint()) //to ignore some files or directories, create a .jshintignore file and add the files/dirs you want to ignore - https://jshint.com/docs/cli/
     .pipe(jshint.reporter(stylish))
+    .pipe(dest(root + '/assets/js/'));
 }
 
 function imgTask(){
-  return src(img + 'RAW/**/*.{jpg,JPG,png}')
+  return src(img + '**/*.{jpg,JPG,png}')
+  // eslint-disable-next-line no-undef
   .pipe(newer(img))
   .pipe(image())
-  .pipe(dest(img));
+  .pipe(dest(root + '/assets/images/'));
  }
 
  function watchTask(){
@@ -57,9 +57,9 @@ function imgTask(){
   
   watch(scss + '*.scss', scssTask);
   watch(js + '**/*.js', jsTask);
-  watch(img + 'RAW/**/*.{jpg,JPG,png}', imgTask);
+  watch(img + '**/*.{jpg,JPG,png}', imgTask);
   watch(root + '**/*').on('change', browserSync.reload);
- };
+ }
 
  // https://www.browsersync.io/docs/options#option-server
 function server() {
