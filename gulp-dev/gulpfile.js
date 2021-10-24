@@ -39,7 +39,7 @@ function vendorsTask() {
 }
 
 function scssTask() {
-  return src(scss + 'app.scss')
+  return src(scss + '*.scss')
     .pipe(sourcemaps.init()) // initialize sourcemaps first
     .pipe(sass({
       outputStyle: 'expanded',
@@ -69,7 +69,7 @@ function imgTask(){
   //start BrowserSync server
   server();
 
-  watch(scss + '*.scss', scssTask);
+  watch(scss + '**/*.scss', scssTask);
   watch(js + '**/*.js', jsTask);
   watch(img + '**/*.{jpg,JPG,png}', imgTask);
   watch(root + '**/*').on('change', browserSync.reload);
