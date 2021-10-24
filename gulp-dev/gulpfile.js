@@ -61,12 +61,20 @@ function imgTask(){
   watch(root + '**/*').on('change', browserSync.reload);
  }
 
+/*
+* Set 'url' (the host and proxy hostnames) to match the canonical url of your ddev project.
+* Do not include the http/s protocol in the url. The ddev-router will route the
+* host machine's request to the appropriate protocol.
+* 
+* ex: yoursite.ddev.site
+*/
+
  // https://www.browsersync.io/docs/options#option-server
 function server() {
   browserSync.init({
-    proxy: 'localhost', //alias
-    port: 10004, //<-- changed default port (default:3000). Make sure to use proxy url + port for reload to work i.e http://hsnycwp.local:8080
-    open: false //<-- set false to prevent opening browser
+    proxy: 'localhost/cryptodiary/', //alias
+    // port: 80, //<-- changed default port (default:3000). Make sure to use proxy url + port for reload to work i.e http://hsnycwp.local:8080
+    // open: false, //<-- set false to prevent opening browser
   });
  }
 

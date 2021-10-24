@@ -62,3 +62,19 @@ function cd_setup() {
 }
 endif; // cd_setup
 add_action( 'after_setup_theme', 'cd_setup' );
+
+
+
+
+
+/**
+ * include styles.
+ * */
+if(! function_exists('cd_styles') ) {
+    function cd_styles(){
+        wp_enqueue_style('cd-style-css', get_template_directory_uri() .'/assets/css/app.css');
+    }
+}
+add_action('wp_enqueue_scripts', 'cd_styles');
+  
+  
