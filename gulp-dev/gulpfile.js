@@ -2,7 +2,7 @@ const {
   src,
   dest,
   watch,
-  // series,
+  series,
   // parallel
 } = require('gulp');
 
@@ -11,9 +11,13 @@ const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const image = require('gulp-image');
+const newer = require('gulp-newer');
 const jshint = require('gulp-jshint');
 const stylish = require('jshint-stylish');
 const browserSync = require('browser-sync').create();
+const del = require('del');
+
+const vendors = ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'];
 
 // theme name
 const themename = 'cd';
@@ -22,6 +26,17 @@ const root = '../' + themename + '/',
   scss = 'sass/',
   js = 'js/',
   img = 'images/';
+
+// The `clean` function is not exported so it can be considered a private task.
+// It can still be used within the `series()` composition.
+function cleanTask() {
+  return del([root + '/assets'], {force: true});
+}
+
+function vendorsTask() {
+  return src(vendors)
+  .pipe(dest( root  + '/assets/vendors/'))
+}
 
 function scssTask() {
   return src(scss + 'app.scss')
@@ -45,7 +60,6 @@ function jsTask() {
 
 function imgTask(){
   return src(img + '**/*.{jpg,JPG,png}')
-  // eslint-disable-next-line no-undef
   .pipe(newer(img))
   .pipe(image())
   .pipe(dest(root + '/assets/images/'));
@@ -54,7 +68,7 @@ function imgTask(){
  function watchTask(){
   //start BrowserSync server
   server();
-  
+
   watch(scss + '*.scss', scssTask);
   watch(js + '**/*.js', jsTask);
   watch(img + '**/*.{jpg,JPG,png}', imgTask);
@@ -78,4 +92,4 @@ function server() {
   });
  }
 
- exports.default = watchTask;
+ exports.default = series(cleanTask, vendorsTask, scssTask, jsTask, imgTask, watchTask);
