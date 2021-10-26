@@ -10,6 +10,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const image = require('gulp-image');
 const newer = require('gulp-newer');
 const jshint = require('gulp-jshint');
@@ -17,7 +18,7 @@ const stylish = require('jshint-stylish');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 
-const vendors = ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'];
+const vendors = ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'node_modules/node-marquee/dist/cdn/index.js'];
 
 // theme name
 const themename = 'cd';
@@ -39,6 +40,11 @@ function vendorsTask() {
 }
 
 function scssTask() {
+  let plugins = [
+    autoprefixer(),
+    cssnano()
+  ];
+
   return src(scss + '*.scss')
     .pipe(sourcemaps.init()) // initialize sourcemaps first
     .pipe(sass({
@@ -46,7 +52,7 @@ function scssTask() {
       indentType: 'tab',
       indentWidth: '1'
     }).on('error', sass.logError)) // compile SCSS to CSS
-    .pipe(postcss(autoprefixer()))
+    .pipe(postcss(plugins))
     .pipe(sourcemaps.write('maps'))
     .pipe(dest(root + '/assets/css/'));
 }

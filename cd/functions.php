@@ -84,7 +84,23 @@ add_action('wp_enqueue_scripts', 'cd_styles');
 if(! function_exists('cd_script') ) {
     function cd_script(){
         wp_enqueue_script('cd-bootstrap-bundle-js', get_template_directory_uri() .'/assets/vendors/bootstrap.bundle.min.js', array(), null, true );
+        wp_enqueue_script('cd-marquee-js', get_template_directory_uri() .'/assets/vendors/index.js', array(), null, true );
+
+        wp_enqueue_script('cd-app-js', get_template_directory_uri() .'/assets/js/app.js', array(), null, true );
     }
 }
 add_action('wp_enqueue_scripts', 'cd_script');
   
+
+
+/**
+ * Yes, we are hooking Google Fonts.
+ */
+if(! function_exists('add_gfonts_to_head') ) {
+    function add_gfonts_to_head() { ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<?php }
+}
+add_action('wp_head', 'add_gfonts_to_head');
