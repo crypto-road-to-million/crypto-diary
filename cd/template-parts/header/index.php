@@ -8,7 +8,7 @@
         <a class="blog-header-logo text-dark" href="#"><?php bloginfo( 'name' ); ?></a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a id="js-modalSearchBtn" class="link-secondary" href="#" aria-label="Search">
+        <a id="js-modalSearchBtn" class="link-secondary" href="javascript:void(0);" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24">
             <title><?php esc_html_e( 'Search', 'cd' ); ?></title>
@@ -33,12 +33,11 @@
         printf( '<a class="p-2 link-secondary" href="%1$s">%2$s</a>',
         esc_url( get_category_link( $category->term_id ) ),
         esc_html( $category->name )
-      );
-    } ?>
+        );
+      } ?>
     </nav>
   </div>
   <?php } ?>
-
 </div>
 
 <!-- Modal -->
@@ -46,7 +45,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="searchModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="searchModalLabel"><?php esc_html_e( 'Search', 'cd' ); ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -54,7 +53,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
