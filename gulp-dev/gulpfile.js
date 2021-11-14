@@ -26,7 +26,8 @@ const themename = 'cd';
 const root = '../' + themename + '/',
   scss = 'sass/',
   js = 'js/',
-  img = 'images/';
+  img = 'images/',
+  svg = 'svg/';
 
 // The `clean` function is not exported so it can be considered a private task.
 // It can still be used within the `series()` composition.
@@ -34,9 +35,14 @@ function cleanTask() {
   return del([root + '/assets'], {force: true});
 }
 
+function svgTask() {
+  return src(svg + '*.svg')
+  .pipe(dest(root + 'assets/svg/'))
+}
+
 function vendorsTask() {
   return src(vendors)
-  .pipe(dest( root  + '/assets/vendors/'))
+  .pipe(dest( root  + 'assets/vendors/'))
 }
 
 function scssTask() {
@@ -54,21 +60,21 @@ function scssTask() {
     }).on('error', sass.logError)) // compile SCSS to CSS
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write('maps'))
-    .pipe(dest(root + '/assets/css/'));
+    .pipe(dest(root + 'assets/css/'));
 }
 
 function jsTask() {
   return src([js + '*.js'])
     .pipe(jshint()) //to ignore some files or directories, create a .jshintignore file and add the files/dirs you want to ignore - https://jshint.com/docs/cli/
     .pipe(jshint.reporter(stylish))
-    .pipe(dest(root + '/assets/js/'));
+    .pipe(dest(root + 'assets/js/'));
 }
 
 function imgTask(){
   return src(img + '**/*.{jpg,JPG,png}')
   .pipe(newer(img))
   .pipe(image())
-  .pipe(dest(root + '/assets/images/'));
+  .pipe(dest(root + 'assets/images/'));
  }
 
  function watchTask(){
@@ -78,6 +84,7 @@ function imgTask(){
   watch(scss + '**/*.scss', scssTask);
   watch(js + '**/*.js', jsTask);
   watch(img + '**/*.{jpg,JPG,png}', imgTask);
+  watch(svg + '*.svg', svgTask);
   watch(root + '**/*').on('change', browserSync.reload);
  }
 
@@ -98,4 +105,4 @@ function server() {
   });
  }
 
- exports.default = series(cleanTask, vendorsTask, scssTask, jsTask, imgTask, watchTask);
+ exports.default = series(cleanTask, vendorsTask, svgTask, scssTask, jsTask, imgTask, watchTask);

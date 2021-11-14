@@ -12,7 +12,8 @@ if (document.getElementById('js-modalSearchBtn') && document.getElementById('sea
 
 if (document.querySelector('.node-marquee')) {
   nodeMarquee({
-    selector: '.node-marquee'
+    selector: '.node-marquee',
+    pauseOnHover: true,
   });
 }
 

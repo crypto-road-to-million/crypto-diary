@@ -1,0 +1,31 @@
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+
+  &-logo {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif
+      /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+    ;
+    font-size: 2.25rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__social-icon {
+    height: 20px;
+    width: auto;
+  }
+}
+
+.marquee__container {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  p {
+    font-weight: 700;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+}

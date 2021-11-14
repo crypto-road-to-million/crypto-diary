@@ -8,7 +8,16 @@
         <a class="blog-header-logo text-dark" href="#"><?php bloginfo( 'name' ); ?></a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a id="js-modalSearchBtn" class="link-secondary" href="javascript:void(0);" aria-label="Search">
+
+        <?php if( get_field('about_twitter', 'option') ) { ?>
+        <a href="<?php the_field('about_twitter', 'option') ?>" target="_blank" class="link-secondary">
+          <img class="blog-header__social-icon"
+            src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/twitter.svg">
+        </a>
+        <?php } ?>
+
+        <a id="js-modalSearchBtn" class="link-secondary d-none d-md-block" href="javascript:void(0);"
+          aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24">
             <title><?php esc_html_e( 'Search', 'cd' ); ?></title>
@@ -40,20 +49,80 @@
   <?php } ?>
 </div>
 
-<!-- Modal -->
+<!-- The Crypto Diary Serach Modal -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog crypto-modal-search">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="searchModalLabel"><?php esc_html_e( 'Search', 'cd' ); ?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="container">
+          <div class="modal-header">
+            <h5 class="modal-title" id="searchModalLabel"><?php esc_html_e( 'Search', 'cd' ); ?></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="py-5">
+            <form class="d-flex" action="<?php echo esc_url_raw( home_url() ); ?>" method="get">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="s">
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </form>
+            <div class="mt-5">
+              <div class="row">
+                <?php 
+                // the query
+                $the_query = new WP_Query( array(
+                  'post_type' => 'post',
+                  'posts_per_page' => 6,
+                  'post__not_in' => get_option( 'sticky_posts' ),
+                  'orderby' => 'rand',
+                  ) ); ?>
+  
+                <?php if ( $the_query->have_posts() ) : ?>
+  
+                <!-- pagination here -->
+  
+                <!-- the loop -->
+                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                <div class="col-md-6 mb-5">
+                  <h2 class="mb-1 h4"><?php the_title(); ?></h2>
+                  <p><?php echo get_the_excerpt(); ?></p>
+                </div>
+  
+                <?php endwhile; ?>
+                <!-- end of the loop -->
+  
+                <!-- pagination here -->
+  
+                <?php wp_reset_postdata(); ?>
+  
+                <?php else : ?>
+                <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<?php
+$featured_posts = get_field('marquee_item', 'option');
+if( $featured_posts ): ?>
+<div class="container">
+  <div class="marquee__container bg-dark">
+    <p class="node-marquee">
+      <?php foreach( $featured_posts as $post ):
+      // Setup this post for WP functions (variable must be named $post).
+      setup_postdata($post); ?>
+      <a class="text-white text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+      <?php endforeach; ?>
+    </p>
+  </div>
+</div>
+<?php
+// Reset the global post object so that the rest of the page works correctly.
+wp_reset_postdata(); ?>
+<?php endif; ?>
