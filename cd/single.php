@@ -11,13 +11,26 @@
       <?php get_template_part( 'template-parts/banner/referral' ); ?>
 
       <article <?php post_class('blog-post'); ?>>
-        <h1 class="blog-post-title">
+
+      <?php
+      $categories = get_the_category();
+      if ( ! empty( $categories ) ) {
+        echo '<p><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
+      } ?>
+
+        <h1 class="blog-post-title mb-3">
           <a class="text-decoration-none" href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
           </a>
         </h1>
-        <p class="blog-post-meta">
-          <?php the_time( 'F j, Y' ); ?><?php esc_html_e( ' by ', 'cd' ); ?><?php echo get_the_author_link(); ?></p>
+
+        <?php get_template_part( 'template-parts/post/meta' ); ?>
+
+        <?php the_post_thumbnail( 'cd_post_img', array(
+          'class' => 'img-fluid mb-3',
+          'alt'   => get_the_title()
+        ) ) ?>
+        
         <?php the_content(); ?>
 
         <hr>

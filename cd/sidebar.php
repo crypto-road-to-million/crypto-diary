@@ -1,6 +1,6 @@
 <div class="position-sticky" style="top: 2rem;">
 
-  <div class="p-4">
+  <div class="p-4 d-none d-xl-block">
     <?php get_search_form(); ?>
   </div>
 

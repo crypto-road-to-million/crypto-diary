@@ -64,8 +64,8 @@ function cd_setup() {
     // add_theme_support( 'post-formats', array ( 'aside', 'gallery', 'quote', 'image', 'video' ) );
 
 
-    add_image_size( 'cd_featured', 1296, 332, true );
-    add_image_size( 'cd_post', 200, 250, true );
+    add_image_size( 'cd_post_img', 1296, 604, true );
+    add_image_size( 'cd_post', 200, 400, true );
 }
 endif; // cd_setup
 add_action( 'after_setup_theme', 'cd_setup' );
@@ -116,10 +116,10 @@ add_action('wp_head', 'add_gfonts_to_head');
 /**
  * Edit excerpt lenght
  */
-function cd_excerpt_length($length){
-    return 7;
-}
-add_filter('excerpt_length', 'cd_excerpt_length');
+// function cd_excerpt_length($length){
+//     return 7;
+// }
+// add_filter('excerpt_length', 'cd_excerpt_length');
 
 
 

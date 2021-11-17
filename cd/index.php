@@ -15,8 +15,18 @@
     if ( isset( $cd_sticky ) ) {
       if ( $cd_the_query->have_posts() ) {
         while ( $cd_the_query->have_posts() ) : $cd_the_query->the_post(); ?>
+
+  <?php
+  if (has_post_thumbnail( $post->ID ) ) {
+    $cd_img_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cd_post_img' );
+  } ?>
+
   <article <?php post_class(); ?>>
-    <div class="p-4 p-md-5 mb-4 text-white bg-dark">
+    <div class="p-4 p-md-5 mb-4 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>"
+    <?php if (has_post_thumbnail( $post->ID )) {?>
+      style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;">
+    <?php } ?>
+    
       <div class="col-md-6 px-0">
         <div class="py-4 py-md-5">
           <h1 class="display-4 fst-italic"><?php the_title(); ?></h1>
@@ -52,21 +62,22 @@
     <?php while ( $cd_the_query_two->have_posts() ) : $cd_the_query_two->the_post(); ?>
     <div class="col-md-6">
       <article <?php post_class(); ?>>
-        <div class="row g-0 border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-xxl-400 shadow-sm position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">
               <?php
                 $cd_category = get_the_category();
                 echo $cd_category[0]->cat_name; ?>
             </strong>
-            <h3 class="mb-0"><?php the_title(); ?></h3>
-            <div class="mb-1 text-muted"><?php the_time( 'M j' ); ?></div>
+            <h3 class="mb-3"><?php the_title(); ?></h3>
+            <div class="mb-1 text-muted"><?php esc_html_e( ' by ', 'cd' ); ?><?php echo get_the_author_link(); ?></div>
+            <div class="mb-3 lh-1 text-muted"><small><?php the_time( 'M j' ); ?></small></div>
             <p class="card-text mb-auto"><?php echo get_the_excerpt(); ?></p>
             <a href="<?php the_permalink(); ?>"
               class="stretched-link"><?php esc_html_e('Continue reading', 'cd'); ?></a>
           </div>
           <?php if ( has_post_thumbnail() ) { ?>
-          <div class="col-auto d-none d-lg-block">
+          <div class="col-auto d-none d-xxl-block">
             <?php the_post_thumbnail( 'cd_post', array(
                 'class' => 'bd-placeholder-img',
                 'alt'   => get_the_title()
@@ -94,15 +105,25 @@
       if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
       $count++; ?>
 
-      <article  <?php post_class('blog-post'); ?>>
-        <h2 class="blog-post-title">
+      <article <?php post_class('blog-post'); ?>>
+        <?php     
+        $categories = get_the_category();
+        if ( ! empty( $categories ) ) {
+          echo '<p><a class="link-secondary text-decoration-none fw-bold" href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a></p>';
+        } ?>
+        <h2 class="blog-post-title mb-3">
           <a class="text-decoration-none" href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
           </a>
         </h2>
-        <p class="blog-post-meta">
-          <?php the_time( 'F j, Y' ); ?><?php esc_html_e( ' by ', 'cd' ); ?><?php echo get_the_author_link(); ?></p>
-        <?php the_content(); ?>
+        <?php get_template_part( 'template-parts/post/meta' ); ?>
+
+        <?php the_post_thumbnail( 'cd_post_img', array(
+          'class' => 'img-fluid mb-3',
+          'alt'   => get_the_title()
+        ) ) ?>
+
+        <?php the_excerpt(); ?>
       </article>
 
       <?php

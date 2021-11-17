@@ -1,0 +1,12 @@
+.blog-post-meta {
+
+
+  &__social-share {
+    
+    display: inline-block;
+    height: .875rem*2;
+    padding: calc(.875rem/2);
+    filter: invert(1);
+    width: auto;
+  }
+}
