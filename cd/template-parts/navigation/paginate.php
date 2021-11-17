@@ -10,7 +10,7 @@ $cd_paginate_query = $wp_query;
     previous_posts_link();
   } ?>
 
-  <?php foreach( wpdocs_get_paginated_links( $cd_paginate_query ) as $cd_paginate_link ) : ?>
+  <?php foreach( cd_get_paginated_links( $cd_paginate_query ) as $cd_paginate_link ) : ?>
   <?php if ( $cd_paginate_link->isCurrent ): ?>
   <a class="btn btn-outline-secondary disabled" href="<?php esc_attr_e( $cd_paginate_link->url ) ?>" aria-current="page">
     <?php esc_html_e( 'Page: ', 'cd' ); ?><?php _e( $cd_paginate_link->page ) ?>

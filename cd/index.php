@@ -92,43 +92,26 @@
       $the_query = new WP_Query( array( 'post__not_in' => get_option( 'sticky_posts' ) ) );
       $count = 0;
       if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
-      $count++;
-      ?>
+      $count++; ?>
 
-      <article class="blog-post">
-        <h2 class="blog-post-title"><?php the_title(); ?></h2>
+      <article  <?php post_class('blog-post'); ?>>
+        <h2 class="blog-post-title">
+          <a class="text-decoration-none" href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </h2>
         <p class="blog-post-meta">
           <?php the_time( 'F j, Y' ); ?><?php esc_html_e( ' by ', 'cd' ); ?><?php echo get_the_author_link(); ?></p>
         <?php the_content(); ?>
       </article>
 
       <?php
-      if( $the_query->current_post == ($count%3 == 0) ) { ?>
-
-
-      <div class="row g-0 bg-light position-relative mb-5">
-        <div class="col-12">
-          <div class="p-4 p-md-5">
-            <h5 class="mt-0">Columns with stretched link</h5>
-            <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some
-              real-world content would look like, and we're using it here to give the component a bit of body and size.
-            </p>
-            <a href="#" class="stretched-link">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-
-      <?php } ?>
-
-      <?php
-
-      
-    endwhile;
+      if( $the_query->current_post == ($count%6 == 0) ) {
+        get_template_part( 'template-parts/banner/referral' );
+      }
+      endwhile;
       endif;
-      ?>
-
-      <?php get_template_part( 'template-parts/navigation/paginate' ); ?>
+      get_template_part( 'template-parts/navigation/paginate' ); ?>
 
     </div>
 

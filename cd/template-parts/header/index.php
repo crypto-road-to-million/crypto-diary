@@ -5,7 +5,7 @@
         <!-- <a class="link-secondary" href="#">Subscribe</a> -->
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#"><?php bloginfo( 'name' ); ?></a>
+        <a class="blog-header-logo text-dark" href="<?php echo esc_url_raw( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
 
@@ -59,12 +59,9 @@
             <h5 class="modal-title" id="searchModalLabel"><?php esc_html_e( 'Search', 'cd' ); ?></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="py-5">
-            <form class="d-flex" action="<?php echo esc_url_raw( home_url() ); ?>" method="get">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="s">
-              <button class="btn btn-outline-secondary" type="submit">Search</button>
-            </form>
-            <div class="mt-5">
+          <div class="py-4">
+            <?php get_search_form(); ?>
+            <div class="mt-4">
               <div class="row">
                 <?php 
                 // the query
@@ -74,27 +71,26 @@
                   'post__not_in' => get_option( 'sticky_posts' ),
                   'orderby' => 'rand',
                   ) ); ?>
-  
+
                 <?php if ( $the_query->have_posts() ) : ?>
-  
+
                 <!-- pagination here -->
-  
+
                 <!-- the loop -->
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                <div class="col-md-6 mb-5">
-                  <h2 class="mb-1 h4"><?php the_title(); ?></h2>
-                  <p><?php echo get_the_excerpt(); ?></p>
+                <div class="col-md-6 mb-4">
+                  <small>
+                    <h2 class="mb-1 h4"><?php the_title(); ?></h2>
+                    <p><?php echo get_the_excerpt(); ?></p>
+                  </small>
                 </div>
-  
+
                 <?php endwhile; ?>
                 <!-- end of the loop -->
-  
+
                 <!-- pagination here -->
-  
+
                 <?php wp_reset_postdata(); ?>
-  
-                <?php else : ?>
-                <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
                 <?php endif; ?>
               </div>
             </div>

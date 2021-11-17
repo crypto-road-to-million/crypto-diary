@@ -1,5 +1,12 @@
 <?php 
 
+
+/**
+ * Load Custom Comments Layout file.
+ */
+require get_template_directory() . '/inc/comments-helper.php';
+
+
 /**
  * cd's functions and definitions
  *
@@ -150,7 +157,8 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
-function wpdocs_get_paginated_links( $query ) {
+// paginate links
+function cd_get_paginated_links( $query ) {
     // When we're on page 1, 'paged' is 0, but we're counting from 1,
     // so we're using max() to get 1 instead of 0
     $currentPage = max( 1, get_query_var( 'paged', 1 ) );
@@ -169,12 +177,34 @@ function wpdocs_get_paginated_links( $query ) {
             "url" => get_pagenum_link( $page )
         );
     }, $pages );
-  }
-  
-  
+}
 add_filter('next_posts_link_attributes', 'posts_link_attributes');
 add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 
 function posts_link_attributes() {
     return 'class="btn btn-outline-primary d-none d-lg-inline-block"';
 }
+
+
+
+// edit post comment form
+function cd_remove_comment_url($arg) {
+    $arg['url'] = '';
+    return $arg;
+}
+add_filter('comment_form_default_fields', 'cd_remove_comment_url');
+
+function cd_comment_form_defaults( $defaults ) {
+    $defaults['class_submit'] = 'btn btn-primary';
+    return $defaults;
+}
+add_filter( 'comment_form_defaults', 'cd_comment_form_defaults' );
+
+function cd_move_comment_field_to_bottom( $fields ) {
+    unset( $fields['cookies'] );
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
+add_filter( 'comment_form_fields', 'cd_move_comment_field_to_bottom');

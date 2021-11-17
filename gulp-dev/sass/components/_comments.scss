@@ -1,0 +1,17 @@
+$comment_reply: 12;
+
+$comment_indent: 40px;
+
+@mixin depth-x {
+  @for $i from 1 through $comment_reply {
+      .depth-#{$i} {
+        margin-left: $comment_indent;
+      }
+  }
+}
+
+@include depth-x;
+
+.depth-1 {
+  margin-left: 0;
+}
