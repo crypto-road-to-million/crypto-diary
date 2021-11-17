@@ -64,8 +64,7 @@ function cd_setup() {
     // add_theme_support( 'post-formats', array ( 'aside', 'gallery', 'quote', 'image', 'video' ) );
 
 
-    add_image_size( 'cd_post_img', 1296, 604, true );
-    add_image_size( 'cd_post', 200, 400, true );
+    add_image_size( 'cd_post_img', 1200, 630, true );
 }
 endif; // cd_setup
 add_action( 'after_setup_theme', 'cd_setup' );

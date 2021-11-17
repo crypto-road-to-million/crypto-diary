@@ -62,7 +62,7 @@
     <?php while ( $cd_the_query_two->have_posts() ) : $cd_the_query_two->the_post(); ?>
     <div class="col-md-6">
       <article <?php post_class(); ?>>
-        <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-xxl-400 shadow-sm position-relative">
+        <div class="row g-0 border overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">
               <?php
@@ -76,14 +76,6 @@
             <a href="<?php the_permalink(); ?>"
               class="stretched-link"><?php esc_html_e('Continue reading', 'cd'); ?></a>
           </div>
-          <?php if ( has_post_thumbnail() ) { ?>
-          <div class="col-auto d-none d-xxl-block">
-            <?php the_post_thumbnail( 'cd_post', array(
-                'class' => 'bd-placeholder-img',
-                'alt'   => get_the_title()
-              ) ) ?>
-          </div>
-          <?php } ?>
         </div>
       </article>
     </div>
