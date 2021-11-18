@@ -30,6 +30,8 @@
           'class' => 'img-fluid mb-3',
           'alt'   => get_the_title()
         ) ) ?>
+
+        <?php get_template_part( 'template-parts/post/chapter' ) ?>
         
         <?php the_content(); ?>
 

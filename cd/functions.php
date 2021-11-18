@@ -207,3 +207,34 @@ function cd_move_comment_field_to_bottom( $fields ) {
     return $fields;
 }
 add_filter( 'comment_form_fields', 'cd_move_comment_field_to_bottom');
+
+
+// reading time function
+function reading_time() {
+    // $content = get_post_field( 'post_content', $post->ID );
+  
+    //join string values by comma in loop
+    $string = '';
+  
+    global $post;
+        
+    $rows = get_field('post_chapter', $post->ID);
+    if( $rows ) {
+      foreach( $rows as $row ) {
+        $value = $row['chapter_content'];
+        $string .= " $value";
+      }
+    }
+  
+    $string = substr($string, 1); // remove leading ","
+  
+    $content = $string;
+  
+    $word_count = str_word_count( strip_tags( $content ) );
+    $readingtime = ceil($word_count / 200);
+  
+    $timer = esc_html_e( ' min', 'cd' );
+    $totalreadingtime = $readingtime . $timer;
+  
+    return $totalreadingtime;
+  }
