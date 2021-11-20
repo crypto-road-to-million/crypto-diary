@@ -1,12 +1,13 @@
 <div class="position-sticky" style="top: 2rem;">
 
-  <div class="p-4 d-none d-xl-block">
-    <?php get_search_form(); ?>
-  </div>
-
   <div class="p-4 mb-3 bg-light rounded">
     <h4 class="fst-italic"><?php the_field('about_title', 'option'); ?></h4>
     <p class="mb-0"><?php the_field('about_small_description', 'option'); ?></p>
+  </div>
+
+  
+  <div class="p-4 d-none d-xl-block">
+    <?php get_search_form(); ?>
   </div>
 
   <?php

@@ -12,16 +12,14 @@
 
       <article <?php post_class('blog-post'); ?>>
 
-      <?php
-      $categories = get_the_category();
-      if ( ! empty( $categories ) ) {
-        echo '<p><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
-      } ?>
+        <?php
+        $categories = get_the_category();
+        if ( ! empty( $categories ) ) {
+          echo '<p><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
+        } ?>
 
         <h1 class="blog-post-title mb-3">
-          <a class="text-decoration-none" href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
-          </a>
+          <?php the_title(); ?>
         </h1>
 
         <?php get_template_part( 'template-parts/post/meta' ); ?>
@@ -31,9 +29,9 @@
           'alt'   => get_the_title()
         ) ) ?>
 
-        <?php get_template_part( 'template-parts/post/chapter' ) ?>
-        
         <?php the_content(); ?>
+
+        <?php get_template_part( 'template-parts/post/chapter' ) ?>
 
         <hr>
 
