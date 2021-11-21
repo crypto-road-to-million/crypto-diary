@@ -17,10 +17,11 @@
         if ( ! empty( $categories ) ) {
           echo '<p><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
         } ?>
-
-        <h1 class="blog-post-title mb-3">
-          <?php the_title(); ?>
-        </h1>
+        <header>
+          <h1 class="blog-post-title mb-3">
+            <?php the_title(); ?>
+          </h1>
+        </header>
 
         <?php get_template_part( 'template-parts/post/meta' ); ?>
 
@@ -32,6 +33,8 @@
         <?php the_content(); ?>
 
         <?php get_template_part( 'template-parts/post/chapter' ) ?>
+
+        <?php get_template_part( 'template-parts/post/knowmore' ); ?>
 
         <hr>
 

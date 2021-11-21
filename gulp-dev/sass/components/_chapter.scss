@@ -4,7 +4,38 @@
       height: 16px;
       width: auto;
       display: block;
-      margin: 8px 0;
+      margin: 8px;
     }
+  }
+
+  &__keypoints-title {
+    margin-left: 32px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $black;
+  }
+
+  &__link {
+    a {
+      text-decoration-color: rgba($black,.5);
+
+      &:hover {
+        text-decoration-color: unset;
+      }
+    }
+  }
+}
+
+.reading-time {
+  img {
+    display: block;
+    height: 12px;
+    width: auto;
+  }
+  span {
+    display: block;
+    margin-left: 4px;
+    font-size: 1rem;
+    line-height: 1;
   }
 }

@@ -5,7 +5,7 @@
   </div>
   <?php if(!is_single()){ ?>
   <div class="dropdown">
-    <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" id="dropdownSharingLink"
+    <a class="btn btn-sm btn-light dropdown-toggle" href="#" role="button" id="dropdownSharingLink"
       data-bs-toggle="dropdown" aria-expanded="false"><?php esc_html_e( 'Share', 'cd' ); ?></a>
 
     <ul class="dropdown-menu" aria-labelledby="dropdownSharingLink">

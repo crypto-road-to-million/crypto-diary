@@ -233,7 +233,7 @@ function reading_time() {
     $word_count = str_word_count( strip_tags( $content ) );
     $readingtime = ceil($word_count / 200);
   
-    $timer = esc_html_e( ' min', 'cd' );
+    $timer = esc_html__( '&#39; of reading', 'cd' );
     $totalreadingtime = $readingtime . $timer;
   
     return $totalreadingtime;
