@@ -23,10 +23,10 @@
 
   <article <?php post_class(); ?>>
     <div class="p-4 p-md-5 mb-4 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>"
-    <?php if (has_post_thumbnail( $post->ID )) {?>
+      <?php if (has_post_thumbnail( $post->ID )) {?>
       style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;">
-    <?php } ?>
-    
+      <?php } ?>
+
       <div class="col-md-6 px-0">
         <div class="py-4 py-md-5">
           <h1 class="display-4 fst-italic"><?php the_title(); ?></h1>
@@ -110,10 +110,14 @@
         </h2>
         <?php get_template_part( 'template-parts/post/meta' ); ?>
 
-        <?php the_post_thumbnail( 'cd_post_img', array(
+        <?php if (has_post_thumbnail( $post->ID ) ){ ?>
+        <a href="<?php the_permalink(); ?>">
+          <?php the_post_thumbnail( 'cd_post_img', array(
           'class' => 'img-fluid mb-3',
           'alt'   => get_the_title()
         ) ) ?>
+        </a>
+        <?php } ?>
 
         <?php the_excerpt(); ?>
       </article>
@@ -132,6 +136,8 @@
       <?php get_sidebar(); ?>
     </div>
   </div>
+
+  <?php get_template_part( 'template-parts/video/section' ); ?>
 
 </main>
 

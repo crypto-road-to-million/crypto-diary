@@ -1,7 +1,7 @@
+<?php if( have_rows('post_chapter') ): ?>
 <div class="p-2 p-md-4 my-3 bg-light rounded chapter">
   <div class="row g-0 flex-nowrap mt-3">
     <div class="col-10 order-2">
-      <?php if( have_rows('post_chapter') ): ?>
       <h5 class="chapter__keypoints-title"><?php esc_html_e( 'The key points', 'cd' ); ?></h5>
       <ul class="chapter__link">
         <?php while( have_rows('post_chapter') ): the_row(); ?>
@@ -11,7 +11,6 @@
         </li>
         <?php endwhile; ?>
       </ul>
-      <?php endif; ?>
     </div>
     <div class="col-auto order-1 chapter__share">
       <?php
@@ -49,9 +48,11 @@
     </div>
   </div>
 </div>
+<?php endif; ?>
 
 <?php get_template_part( 'template-parts/banner/referral' ); ?>
 
+<?php if( have_rows('post_chapter') ): ?>
 <div class="pt-2 pt-md-4 mt-3 mb-2">
   <div class="d-flex reading-time align-items-baseline">
     <img class="opacity-50" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/clock.svg"
@@ -61,6 +62,7 @@
     </span>
   </div>
 </div>
+<?php endif; ?>
 
 <div class="pb-3 pb-md-5 mb-3">
   <?php if( have_rows('post_chapter') ): ?>

@@ -18,7 +18,7 @@ const stylish = require('jshint-stylish');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 
-const vendors = ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'node_modules/node-marquee/dist/cdn/index.js'];
+const vendors = ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map', 'node_modules/node-marquee/dist/cdn/index.js'];
 
 // theme name
 const themename = 'cd';

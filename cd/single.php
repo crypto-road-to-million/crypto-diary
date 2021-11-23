@@ -34,6 +34,10 @@
 
         <?php get_template_part( 'template-parts/post/chapter' ) ?>
 
+        <hr>
+
+        <?php the_tags(); ?>
+        
         <?php get_template_part( 'template-parts/post/knowmore' ); ?>
 
         <hr>
@@ -55,6 +59,7 @@
     </div>
   </div>
 
+  <?php get_template_part( 'template-parts/video/section' ); ?>
 </main>
 
 <?php get_footer(); ?>
