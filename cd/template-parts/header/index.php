@@ -12,7 +12,7 @@
         <?php if( get_field('about_twitter', 'option') ) { ?>
         <a href="<?php the_field('about_twitter', 'option') ?>" target="_blank" class="link-secondary">
           <img class="blog-header__social-icon"
-            src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/twitter.svg">
+            src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/twitter.svg" alt="Twitter logo">
         </a>
         <?php } ?>
 
@@ -76,11 +76,11 @@
 
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <div class="col-md-6 mb-4">
-                  <small>
-                    <h2 class="mb-1 h4"><?php the_title(); ?></h2>
-                    <p class="mb-0"><?php echo get_the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="link-primary"><?php esc_html_e( 'Continue reading...', 'cd' ); ?></a>
-                  </small>
+                  
+                    <h2 class="mb-1 h4"><small><?php the_title(); ?></small></h2>
+                    <p class="mb-0"><small><?php echo get_the_excerpt(); ?></small></p>
+                    <a href="<?php the_permalink(); ?>" class="link-primary"><small><?php esc_html_e( 'Continue reading...', 'cd' ); ?></small></a>
+                  
                 </div>
 
                 <?php endwhile; ?>

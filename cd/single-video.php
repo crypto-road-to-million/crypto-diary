@@ -33,8 +33,7 @@
       <?php
       get_template_part( 'template-parts/banner/referral' );
       endwhile;
-      endif;
-      get_template_part( 'template-parts/navigation/paginate' ); ?>
+      endif; ?>
 
     </div>
 

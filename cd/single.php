@@ -34,13 +34,11 @@
 
         <?php get_template_part( 'template-parts/post/chapter' ) ?>
 
-        <hr>
+        <?php wp_link_pages( 'pagelink=Page %' ); ?>
 
         <?php the_tags(); ?>
         
         <?php get_template_part( 'template-parts/post/knowmore' ); ?>
-
-        <hr>
 
         <?php comments_template(); ?>
 
@@ -49,8 +47,7 @@
       <?php
       get_template_part( 'template-parts/banner/referral' );
       endwhile;
-      endif;
-      get_template_part( 'template-parts/navigation/paginate' ); ?>
+      endif; ?>
 
     </div>
 
