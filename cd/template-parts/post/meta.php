@@ -19,11 +19,11 @@
       </li>
       <li>
         <a class="dropdown-item"
-          href="https://twitter.com/share?url=<?php echo $site_url; ?>"><?php esc_html_e( 'Twitter', 'ol' ); ?></a>
+          href="https://twitter.com/share?url=<?php echo $site_url; ?>"><?php esc_html_e( 'Twitter', 'cd' ); ?></a>
       </li>
       <li>
         <a class="dropdown-item"
-          href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $site_url; ?>"><?php esc_html_e( 'LinkedIn', 'ol' ); ?></a>
+          href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $site_url; ?>"><?php esc_html_e( 'LinkedIn', 'cd' ); ?></a>
       </li>
       <li>
         <a class="dropdown-item" href="<?php
@@ -31,7 +31,7 @@
           echo 'whatsapp://send?text=' . $site_url . '';
         } else {
           echo 'https://api.whatsapp.com/send?text=' . $site_url . '';
-        } ?>" data-action="share/whatsapp/share"><?php esc_html_e( 'Whatsapp', 'ol' ); ?></a>
+        } ?>" data-action="share/whatsapp/share"><?php esc_html_e( 'Whatsapp', 'cd' ); ?></a>
       </li>
     </ul>
   </div>

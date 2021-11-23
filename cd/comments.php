@@ -64,7 +64,7 @@ if ( post_password_required() )
         '</div>',
       )
     ),
-    'comment_field' => '<div class="mb-3"><label for="comment" class="form-label">' . _x( 'Comment', 'cd' ) . '</label><textarea class="form-control" id="comment" name="comment" aria-required="true" rows="3"></textarea></div>',
+    'comment_field' => '<div class="mb-3"><label for="comment" class="form-label">' . esc_html_e( 'Comment', 'cd' ) . '</label><textarea class="form-control" id="comment" name="comment" aria-required="true" rows="3"></textarea></div>',
     'comment_notes_after' => '',
     
   );

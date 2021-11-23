@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cd\n"
+"POT-Creation-Date: 2021-11-23 12:47+0100\n"
+"PO-Revision-Date: 2021-11-23 12:56+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: esc_html_e;esc_html__;_e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:10
+msgid "Page Not Found"
+msgstr "Pagina non trovata"
+
+#: 404.php:12
+msgid ""
+"We’re sorry, we seem to have lost this page, but we don’t want to lose you."
+msgstr ""
+"Siamo spiacenti, sembra che abbiamo perso questa pagina, ma non vogliamo "
+"perderti."
+
+#: 404.php:21
+msgid "Report a broken link"
+msgstr "Segnala un collegamento interrotto"
+
+#: 404.php:24 404.php:35
+msgid "Go to Home Page"
+msgstr "Vai alla Home Page"
+
+#: 404.php:56 index.php:36 template-parts/banner/referral.php:20
+#: template-parts/header/index.php:82 template-parts/post/knowmore.php:24
+msgid "Continue reading..."
+msgstr "Continua a leggere…"
+
+#: comments.php:24
+msgid "no responses"
+msgstr "nessuna risposta"
+
+#: comments.php:24
+msgid "one response"
+msgstr "una risposta"
+
+#: comments.php:24
+msgid "% responses"
+msgstr "% risposte"
+
+#: comments.php:41
+msgid "Comment navigation"
+msgstr "Navigazione commenti"
+
+#: comments.php:42
+msgid "&larr; Older Comments"
+msgstr "&larr; Commenti più vecchi"
+
+#: comments.php:43
+msgid "Newer Comments &rarr;"
+msgstr "Commenti recenti &rarr;"
+
+#: comments.php:48
+msgid "Comments are closed."
+msgstr "I commenti sono chiusi."
+
+#: comments.php:58
+msgid "Your Name "
+msgstr "Nome"
+
+#: comments.php:62
+msgid "Your Email "
+msgstr "Email"
+
+#: comments.php:67
+msgid "Comment"
+msgstr "Commento"
+
+#: footer.php:6
+msgid "disclaimer"
+msgstr "disclaimer"
+
+#: footer.php:9
+msgid ""
+"Any information found on this page is not to be considered as financial "
+"advice. You should do your own research before making any decisions."
+msgstr ""
+"Qualsiasi informazione trovata in questa pagina non deve essere "
+"considerata come consulenza finanziaria. Dovresti fare le tue ricerche "
+"prima di prendere qualsiasi decisione."
+
+#: footer.php:17
+msgid "Copyright &copy; "
+msgstr "Copyright &copy; "
+
+#: footer.php:20
+msgid "Submit Feature Request or Bug"
+msgstr "Invia richiesta di funzionalità o bug"
+
+#: functions.php:56
+msgid "Primary Menu"
+msgstr "Menu Primario"
+
+#: functions.php:57
+msgid "Secondary Menu"
+msgstr "Menu Secondario"
+
+#: functions.php:236
+msgid "&#39; of reading"
+msgstr "&#39; di lettura"
+
+#: inc/comments-helper.php:14
+msgid "Your comment is awaiting moderation."
+msgstr "Il tuo commento è in attesa di approvazione."
+
+#: inc/comments-helper.php:20
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s a %2$s"
+
+#: index.php:73
+msgid " by "
+msgstr " di "
+
+#: index.php:77
+msgid "Continue reading"
+msgstr "Continua a leggere"
+
+#: page.php:50 template-parts/video/section.php:12
+msgid "Video"
+msgstr "Video"
+
+#: search.php:8
+msgid "Results for: "
+msgstr "Risultati per: "
+
+#: searchform.php:3 template-parts/header/index.php:23
+#: template-parts/header/index.php:59
+msgid "Search"
+msgstr "Cerca"
+
+#: sidebar.php:19
+msgid "Categories"
+msgstr "Categorie"
+
+#: sidebar.php:33
+msgid "Archives"
+msgstr "Archivi"
+
+#: sidebar.php:40
+msgid "Elsewhere"
+msgstr "Altrove"
+
+#: sidebar.php:43
+msgid "GitHub"
+msgstr "GitHub"
+
+#: sidebar.php:46 template-parts/post/meta.php:22
+msgid "Twitter"
+msgstr "Twitter"
+
+#: sidebar.php:49 template-parts/post/meta.php:18
+msgid "Facebook"
+msgstr "Facebook"
+
+#: template-parts/navigation/paginate.php:16
+msgid "Page: "
+msgstr "Pagina: "
+
+#: template-parts/post/chapter.php:5
+msgid "The key points"
+msgstr "I punti chiave"
+
+#: template-parts/post/knowmore.php:11
+msgid ", to know more"
+msgstr ", per saperne di più"
+
+#: template-parts/post/knowmore.php:22
+msgid "Last updated "
+msgstr "Ultimo aggiornamento "
+
+#: template-parts/post/meta.php:3
+msgid "by "
+msgstr "di "
+
+#: template-parts/post/meta.php:9
+msgid "Share"
+msgstr "Condividi"
+
+#: template-parts/post/meta.php:26
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: template-parts/post/meta.php:34
+msgid "Whatsapp"
+msgstr "WhatsApp"
