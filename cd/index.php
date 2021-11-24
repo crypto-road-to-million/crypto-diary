@@ -88,7 +88,7 @@
 
   <div class="row">
     <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      <h3 class="py-4 mb-4 fst-italic border-bottom">
         <?php bloginfo( 'description' ); ?>
       </h3>
       <?php

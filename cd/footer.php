@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-8 mx-auto fw-bold text-center">
         <header>
-          <h2><?php esc_html_e( 'disclaimer', 'cd' ); ?></h2>
+          <h2 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h2>
         </header>
         <p class="mb-0">
           <?php esc_html_e( 'Any information found on this page is not to be considered as financial advice. You should do your own research before making any decisions.', 'cd' ); ?>
@@ -12,6 +12,7 @@
     </div>
   </div>
 </section>
+
 <footer class="blog-footer bg-dark text-white">
   <div class="container">
     <p><?php esc_html_e( 'Copyright &copy; ', 'cd' ); ?><?php echo esc_url( home_url( ) ); ?> <?php echo date('o'); ?>

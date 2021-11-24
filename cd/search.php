@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-8">
-      <h1 class="pb-4 mb-4 fst-italic border-bottom">
+      <h1 class="py-4 mb-4 fst-italic border-bottom">
         <?php esc_html_e( 'Results for: ', 'cd' ); ?><?php echo $s; ?>
       </h1>
       <?php

@@ -238,3 +238,13 @@ function reading_time() {
   
     return $totalreadingtime;
   }
+
+
+
+  function cd_filter_search($query) {
+	if (!$query->is_admin && $query->is_search) {
+		$query->set('post_type', array('post', 'page', 'video'));
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'cd_filter_search');

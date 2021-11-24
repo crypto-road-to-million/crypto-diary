@@ -3,7 +3,8 @@
 $args = array(
   'post_type' => 'referral', 
   'posts_per_page' => 1,
-  'orderby' => 'rand'
+  'orderby' => 'rand',
+  'post__not_in' => array (get_the_ID()),
 );
 
 // the query

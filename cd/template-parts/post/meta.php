@@ -3,11 +3,11 @@
     <p class="blog-post-meta mb-1"><?php esc_html_e( 'by ', 'cd' ); ?><?php echo get_the_author_link(); ?></p>
     <p class="blog-post-meta mb-0 lh-1"><small><?php the_time( 'F j, Y' ); ?></small></p>
   </div>
-  <?php if(!is_single()){ ?>
+ 
+  <?php if(!is_archive() && !is_home()) { ?>
   <div class="dropdown">
     <a class="btn btn-sm btn-light dropdown-toggle" href="#" role="button" id="dropdownSharingLink-<?php echo get_the_ID(); ?>"
       data-bs-toggle="dropdown" aria-expanded="false"><?php esc_html_e( 'Share', 'cd' ); ?></a>
-
     <ul class="dropdown-menu" aria-labelledby="dropdownSharingLink-<?php echo get_the_ID(); ?>">
       <?php
       $obj_id = get_queried_object_id();

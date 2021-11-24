@@ -4,11 +4,9 @@
 
   <div class="row">
     <div class="col-md-8">
-      
-        <?php
-        // single_cat_title();
-        the_archive_title( '<h1 class="py-4 mb-4 fst-italic border-bottom">', '</h1>' ); ?>
-      
+      <h1 class="py-4 mb-4 fst-italic border-bottom">
+        <?php single_cat_title(); ?>
+      </h1>
       <?php
 
       $count = 0;
