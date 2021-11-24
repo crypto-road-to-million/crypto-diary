@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main class="main-content">
+<main class="flex-1">
   <div class="container my-5">
     <div class="row g-0">
       <div class="col-lg-8 mx-auto">
