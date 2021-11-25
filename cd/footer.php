@@ -1,12 +1,12 @@
 <section class="bg-danger text-white py-5">
   <div class="container">
     <div class="row">
-      <div class="col-8 mx-auto fw-bold text-center">
+      <div class="col-md-8">
         <header>
           <h6 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h6>
         </header>
         <p class="mb-0">
-          <?php esc_html_e( 'Any information found on this page is not to be considered as financial advice. You should do your own research before making any decisions.', 'cd' ); ?>
+          <?php the_field('disclaimer_text', 'option'); ?>
         </p>
       </div>
     </div>
