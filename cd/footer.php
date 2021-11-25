@@ -1,7 +1,7 @@
 <section class="bg-danger text-white py-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-12">
         <header>
           <h6 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h6>
         </header>
