@@ -26,7 +26,7 @@
         style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;"
         <?php } ?>
         >
-        <div class="col-md-6 px-0">
+        <div class="col-md-8 px-0">
           <div class="py-4 py-md-5">
             <h1 class="display-4 fst-italic"><?php the_title(); ?></h1>
             <p class="lead my-3"><?php echo get_the_excerpt(); ?></p>
