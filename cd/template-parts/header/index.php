@@ -56,7 +56,7 @@
       <div class="modal-body">
         <div class="container">
           <div class="modal-header">
-            <h5 class="modal-title" id="searchModalLabel"><?php esc_html_e( 'Search', 'cd' ); ?></h5>
+            <h4 class="modal-title" id="searchModalLabel"><?php esc_html_e( 'Search', 'cd' ); ?></h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="py-4">

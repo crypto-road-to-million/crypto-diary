@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <header>
-          <h6 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h6>
+          <h5 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h5>
         </header>
         <p class="mb-0">
           <?php the_field('disclaimer_text', 'option'); ?>
