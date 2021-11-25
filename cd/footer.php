@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-8 mx-auto fw-bold text-center">
         <header>
-          <h2 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h2>
+          <h6 class="text-uppercase"><?php esc_html_e( 'disclaimer', 'cd' ); ?></h6>
         </header>
         <p class="mb-0">
           <?php esc_html_e( 'Any information found on this page is not to be considered as financial advice. You should do your own research before making any decisions.', 'cd' ); ?>
