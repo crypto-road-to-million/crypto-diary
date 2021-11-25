@@ -31,11 +31,15 @@
           <?php if (has_post_thumbnail( $post->ID ) ){ ?>
           <a href="<?php the_permalink(); ?>">
             <?php the_post_thumbnail( 'cd_post_img', array(
-          'class' => 'img-fluid mb-3',
+          'class' => 'img-fluid',
           'alt'   => get_the_title()
         ) ) ?>
           </a>
           <?php } ?>
+          <?php
+      if(get_field('featured_image_credit')){
+        the_field('featured_image_credit');
+      } ?>
 
           <?php the_excerpt(); ?>
         </article>
