@@ -24,9 +24,14 @@
           <?php get_template_part( 'template-parts/post/meta' ); ?>
 
           <?php the_post_thumbnail( 'cd_post_img', array(
-          'class' => 'img-fluid mb-3',
+          'class' => 'img-fluid',
           'alt'   => get_the_title()
         ) ) ?>
+        
+      <?php
+      if(get_field('featured_image_credit')){
+        the_field('featured_image_credit');
+      } ?>
 
           <?php the_content(); ?>
 

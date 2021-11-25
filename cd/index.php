@@ -21,8 +21,8 @@
     $cd_img_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cd_post_img' );
   } ?>
 
-    <article <?php post_class(); ?>>
-      <div class="p-4 p-md-5 mb-4 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>" <?php if (has_post_thumbnail( $post->ID )) { ?>
+    <article <?php post_class('mb-4'); ?>>
+      <div class="p-4 p-md-5 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>" <?php if (has_post_thumbnail( $post->ID )) { ?>
         style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;"
         <?php } ?>
         >
@@ -37,7 +37,12 @@
           </div>
         </div>
       </div>
+      <?php
+      if(get_field('featured_image_credit')){
+        the_field('featured_image_credit');
+      } ?>
     </article>
+    
     <?php endwhile;
     wp_reset_postdata();
       }
