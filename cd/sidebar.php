@@ -7,10 +7,11 @@
   </div>
   <?php } ?>
 
-
   <div class="p-4 d-none d-xl-block">
     <?php get_search_form(); ?>
   </div>
+
+  <?php get_template_part( 'template-parts/banner/referral' ); ?>
 
   <?php
   $categories = get_categories( array(

@@ -6,9 +6,7 @@
       <div class="col-md-8">
 
         <?php
-      if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-        <?php get_template_part( 'template-parts/banner/referral' ); ?>
+        if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <article <?php post_class('blog-post'); ?>>
 
