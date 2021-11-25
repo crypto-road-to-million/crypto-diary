@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cd\n"
-"POT-Creation-Date: 2021-11-23 12:47+0100\n"
-"PO-Revision-Date: 2021-11-23 12:56+0100\n"
+"POT-Creation-Date: 2021-11-25 11:12+0100\n"
+"PO-Revision-Date: 2021-11-25 11:13+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -34,7 +34,7 @@ msgstr "Segnala un collegamento interrotto"
 msgid "Go to Home Page"
 msgstr "Vai alla Home Page"
 
-#: 404.php:56 index.php:36 template-parts/banner/referral.php:20
+#: 404.php:56 index.php:35 template-parts/banner/referral.php:21
 #: template-parts/header/index.php:82 template-parts/post/knowmore.php:24
 msgid "Continue reading..."
 msgstr "Continua a leggere…"
@@ -69,11 +69,11 @@ msgstr "I commenti sono chiusi."
 
 #: comments.php:58
 msgid "Your Name "
-msgstr "Nome"
+msgstr "Nome "
 
 #: comments.php:62
 msgid "Your Email "
-msgstr "Email"
+msgstr "Email "
 
 #: comments.php:67
 msgid "Comment"
@@ -83,20 +83,11 @@ msgstr "Commento"
 msgid "disclaimer"
 msgstr "disclaimer"
 
-#: footer.php:9
-msgid ""
-"Any information found on this page is not to be considered as financial "
-"advice. You should do your own research before making any decisions."
-msgstr ""
-"Qualsiasi informazione trovata in questa pagina non deve essere "
-"considerata come consulenza finanziaria. Dovresti fare le tue ricerche "
-"prima di prendere qualsiasi decisione."
-
-#: footer.php:17
+#: footer.php:18
 msgid "Copyright &copy; "
 msgstr "Copyright &copy; "
 
-#: footer.php:20
+#: footer.php:23
 msgid "Submit Feature Request or Bug"
 msgstr "Invia richiesta di funzionalità o bug"
 
@@ -121,11 +112,11 @@ msgstr "Il tuo commento è in attesa di approvazione."
 msgid "%1$s at %2$s"
 msgstr "%1$s a %2$s"
 
-#: index.php:73
+#: index.php:77
 msgid " by "
 msgstr " di "
 
-#: index.php:77
+#: index.php:82
 msgid "Continue reading"
 msgstr "Continua a leggere"
 
@@ -142,29 +133,41 @@ msgstr "Risultati per: "
 msgid "Search"
 msgstr "Cerca"
 
-#: sidebar.php:19
+#: sidebar.php:22
 msgid "Categories"
 msgstr "Categorie"
 
-#: sidebar.php:33
+#: sidebar.php:36
 msgid "Archives"
 msgstr "Archivi"
 
-#: sidebar.php:40
+#: sidebar.php:44
 msgid "Elsewhere"
 msgstr "Altrove"
 
-#: sidebar.php:43
+#: sidebar.php:47
 msgid "GitHub"
 msgstr "GitHub"
 
-#: sidebar.php:46 template-parts/post/meta.php:22
+#: sidebar.php:50 template-parts/post/meta.php:21
 msgid "Twitter"
 msgstr "Twitter"
 
-#: sidebar.php:49 template-parts/post/meta.php:18
+#: sidebar.php:53 template-parts/post/meta.php:17
 msgid "Facebook"
 msgstr "Facebook"
+
+#: single-referral.php:39
+msgid "Copy to clipboard"
+msgstr "Copia negli appunti"
+
+#: single-referral.php:40
+msgid "Copy code"
+msgstr "Copia codice"
+
+#: single-referral.php:58
+msgid "Referral link"
+msgstr "Referral link"
 
 #: template-parts/navigation/paginate.php:16
 msgid "Page: "
@@ -182,18 +185,25 @@ msgstr ", per saperne di più"
 msgid "Last updated "
 msgstr "Ultimo aggiornamento "
 
-#: template-parts/post/meta.php:3
-msgid "by "
-msgstr "di "
-
 #: template-parts/post/meta.php:9
 msgid "Share"
 msgstr "Condividi"
 
-#: template-parts/post/meta.php:26
+#: template-parts/post/meta.php:25
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: template-parts/post/meta.php:34
+#: template-parts/post/meta.php:33
 msgid "Whatsapp"
 msgstr "WhatsApp"
+
+#~ msgid ""
+#~ "Any information found on this page is not to be considered as financial "
+#~ "advice. You should do your own research before making any decisions."
+#~ msgstr ""
+#~ "Qualsiasi informazione trovata in questa pagina non deve essere "
+#~ "considerata come consulenza finanziaria. Dovresti fare le tue ricerche "
+#~ "prima di prendere qualsiasi decisione."
+
+#~ msgid "by "
+#~ msgstr "di "
