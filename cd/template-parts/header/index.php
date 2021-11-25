@@ -35,7 +35,7 @@
     'parent'  => 0
   ) );
   if (!empty($categories)) { ?>
-  <div class="nav-scroller py-1 mb-2">
+  <div class="nav-scroller py-1 mb-4">
     <nav class="nav d-flex justify-content-between">
       <?php
       foreach ( $categories as $category ) {

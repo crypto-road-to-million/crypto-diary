@@ -17,13 +17,15 @@
           </header>
           <?php get_template_part( 'template-parts/post/meta' ); ?>
 
-          <?php the_post_thumbnail( 'cd_post_img', array(
-          'class' => 'img-fluid mb-3',
-          'alt'   => get_the_title()
-        ) ) ?>
+          <?php
+          the_post_thumbnail( 'cd_post_img', array(
+            'class' => 'img-fluid mb-3',
+            'alt'   => get_the_title()
+          ) ) ?>
 
+          <?php if(get_field('referral_code')){ ?>
           <div class="my-3">
-            <div class="row g-3">
+            <div class="row g-1">
               <div class="col-sm-6">
                 <input type="text" class="form-control" value="<?php esc_attr( the_field('referral_code') ); ?>"
                   id="refCode" aria-label="Referral code. Disabled input" disabled readonly>
@@ -31,13 +33,34 @@
               <div class="col-sm-6">
                 <div class="tooltip-referral">
                   <button class="btn btn-primary w-100" onclick="myFunction()" onmouseout="outFunc()">
-                    <span class="tooltiptext" id="myTooltip"><?php esc_html_e( 'Copy to clipboard', 'cd' ); ?></span>
+                    <span class="tooltiptext"
+                      id="refCodeTooltip"><?php esc_html_e( 'Copy to clipboard', 'cd' ); ?></span>
                     <?php esc_html_e( 'Copy code', 'cd' ); ?>
                   </button>
                 </div>
               </div>
             </div>
           </div>
+          <?php } ?>
+
+          <?php if(get_field('referral_link')) { ?>
+          <div class="my-3">
+            <div class="row g-1">
+              <div class="col-sm-6">
+                <input type="text" class="form-control" value="<?php esc_attr( the_field('referral_link') ); ?>"
+                  id="refLink" aria-label="Referral link. Disabled input" disabled readonly>
+              </div>
+              <div class="col-sm-6">
+                <div class="tooltip-referral">
+                  <a class="btn btn-primary w-100" href="<?php the_field('referral_link'); ?>">
+                    <?php esc_html_e( 'Referral link', 'cd' ); ?>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php } ?>
+
 
 
           <?php the_content(); ?>
