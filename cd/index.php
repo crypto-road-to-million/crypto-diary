@@ -22,11 +22,11 @@
   } ?>
 
     <article <?php post_class('mb-4'); ?>>
-      <div class="p-4 p-md-5 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>"
+      <div class="row g-0 p-4 p-md-5 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>"
         <?php if (has_post_thumbnail( $post->ID )) { ?>
-        style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;"
+        style="background: linear-gradient(rgba(  0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;"
         <?php } ?>>
-        <div class="col-md-8 px-0">
+        <div class="col-lg-6">
           <div class="py-4 py-md-5">
             <h1 class="display-4 fst-italic"><?php the_title(); ?></h1>
             <p class="mt-3 mb-5"><small><?php echo get_the_excerpt(); ?></small></p>
@@ -36,11 +36,69 @@
             </p>
           </div>
         </div>
+        <div class="col-lg-5 offset-lg-1">
+          <div class="py-4 py-md-5">
+            <?php
+            if(get_field('crypto_base') && get_field('crypto_target')) {
+              $crypto_base = get_field('crypto_base');
+              $crypto_target = get_field('crypto_target');
+              
+
+              $url = "https://api.cryptonator.com/api/ticker/{$crypto_base}-{$crypto_target}";
+
+              $curl = curl_init($url);
+              curl_setopt($curl, CURLOPT_URL, $url);
+              curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+              $headers = array(
+                "Accept: application/json",
+              );
+              curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+              //for debug only!
+              curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+              curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+              $resp = curl_exec($curl);
+              curl_close($curl);
+
+
+              $data = json_decode($resp, true);
+              // var_dump($data); ?>
+
+            <div>
+              <div class="font-monospace h3">
+                <?php
+                /*Dynamically generating rows & columns*/
+                echo esc_html( '&#40;' ), $data["ticker"]["base"], esc_html( '&#41;' ), ' ';
+                echo $data["ticker"]["price"], ' ';
+                echo $data["ticker"]["target"]; ?>
+              </div>
+              <div>
+                <small>
+                  <?php
+                  echo esc_html_e( 'Updated ', 'cd' ), date("j F Y H:i:s", $data["timestamp"]), esc_html_e( ' UTC+0:00', 'cd' ); ?>
+                </small>
+              </div>
+            </div>
+            <?php } ?>
+
+
+
+          </div>
+
+
+        </div>
       </div>
       <?php
-      if(get_field('featured_image_credit')){
-        the_field('featured_image_credit');
-      } ?>
+      if(get_field('featured_image_credit')){ ?>
+      <div class="mt-1">
+        <small>
+          <em>
+            <?php the_field('featured_image_credit'); ?>
+          </em>
+        </small>
+      </div>
+      <?php } ?>
     </article>
 
     <?php endwhile;

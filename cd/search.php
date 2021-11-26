@@ -35,9 +35,15 @@
           </a>
           <?php } ?>
           <?php
-      if(get_field('featured_image_credit')){
-        the_field('featured_image_credit');
-      } ?>
+      if(get_field('featured_image_credit')){ ?>
+      <div class="mt-1">
+        <small>
+          <em>
+            <?php the_field('featured_image_credit'); ?>
+          </em>
+        </small>
+      </div>
+      <?php } ?>
 
           <?php if (get_field('youtube_video', $post->ID)) { ?>
           <div class="embed-container mb-2">

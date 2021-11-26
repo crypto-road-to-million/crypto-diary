@@ -27,11 +27,16 @@
           'class' => 'img-fluid',
           'alt'   => get_the_title()
         ) ) ?>
-        
-      <?php
-      if(get_field('featured_image_credit')){
-        the_field('featured_image_credit');
-      } ?>
+   <?php
+      if(get_field('featured_image_credit')){ ?>
+      <div class="mt-1">
+        <small>
+          <em>
+            <?php the_field('featured_image_credit'); ?>
+          </em>
+        </small>
+      </div>
+      <?php } ?>
 
           <?php the_content(); ?>
 
