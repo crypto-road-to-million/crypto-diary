@@ -11,6 +11,9 @@ $args = array(
 $the_query = new WP_Query( $args ); ?>
 <?php if ( $the_query->have_posts() ) : ?>
 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+<?php
+if(get_field('background_color') && get_field('text_color')) { ?>
 <div class="row g-0 position-relative mb-5"
   style="background-color:<?php the_field('background_color'); ?>; color:<?php the_field('text_color'); ?>;">
   <div class="col-12">
@@ -22,6 +25,8 @@ $the_query = new WP_Query( $args ); ?>
     </div>
   </div>
 </div>
+<?php } ?>
+
 <?php endwhile; ?>
 <?php wp_reset_postdata(); ?>
 <?php endif; ?>

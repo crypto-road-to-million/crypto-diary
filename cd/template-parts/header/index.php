@@ -5,7 +5,13 @@
         <!-- <a class="link-secondary" href="#">Subscribe</a> -->
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="<?php echo esc_url_raw( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
+        <a class="blog-header-logo text-dark" href="<?php echo esc_url_raw( home_url() ); ?>">
+        <?php bloginfo( 'name' ); ?>
+        <span class="d-block h6">
+        <?php bloginfo( 'description' ); ?>
+        </span>
+        
+      </a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
 
