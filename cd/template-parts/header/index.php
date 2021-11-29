@@ -6,12 +6,12 @@
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="<?php echo esc_url_raw( home_url() ); ?>">
-        <?php bloginfo( 'name' ); ?>
-        <span class="d-block h6">
-        <?php bloginfo( 'description' ); ?>
-        </span>
-        
-      </a>
+          <?php bloginfo( 'name' ); ?>
+          <span class="d-block h6">
+            <?php bloginfo( 'description' ); ?>
+          </span>
+
+        </a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
 
@@ -41,7 +41,7 @@
     'parent'  => 0
   ) );
   if (!empty($categories)) { ?>
-  <div class="nav-scroller py-1 mb-4">
+  <div class="nav-scroller py-1">
     <nav class="nav d-flex justify-content-between">
       <?php
       foreach ( $categories as $category ) {
@@ -53,6 +53,18 @@
     </nav>
   </div>
   <?php } ?>
+
+  <div class="bg-danger text-white py-1 mb-4">
+    <div class="row">
+      <div class="col-auto text-center mx-auto">
+        <p class="px-4 px-md-5 mb-0">
+          <small>
+            <?php the_field('disclaimer_text', 'option'); ?>
+          </small>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- The Crypto Diary Serach Modal -->
@@ -82,11 +94,12 @@
 
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <div class="col-md-6 mb-4">
-                  
-                    <h2 class="mb-1 h4"><small><?php the_title(); ?></small></h2>
-                    <p class="mb-0"><small><?php echo get_the_excerpt(); ?></small></p>
-                    <a href="<?php the_permalink(); ?>" class="link-primary"><small><?php esc_html_e( 'Continue reading...', 'cd' ); ?></small></a>
-                  
+
+                  <h2 class="mb-1 h4"><small><?php the_title(); ?></small></h2>
+                  <p class="mb-0"><small><?php echo get_the_excerpt(); ?></small></p>
+                  <a href="<?php the_permalink(); ?>"
+                    class="link-primary"><small><?php esc_html_e( 'Continue reading...', 'cd' ); ?></small></a>
+
                 </div>
 
                 <?php endwhile; ?>
