@@ -1,5 +1,10 @@
 <div class="position-sticky" style="top: 2rem;">
 
+  <?php
+  if(is_single()) {
+    get_template_part( 'template-parts/timeline/index' );
+  } ?>
+
   <?php if(get_field('about_title', 'option') || get_field('about_small_description', 'option')) { ?>
   <div class="p-4 mb-3 bg-light rounded">
     <h4 class="fst-italic"><?php the_field('about_title', 'option'); ?></h4>

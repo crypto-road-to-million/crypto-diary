@@ -2,7 +2,7 @@
   width: 100%
 }
 
-.timeline.timeline-one .timeline-item {
+.timeline .timeline-item {
   position: relative;
   width: 50%;
   margin-left: 50%;
@@ -12,17 +12,13 @@
 }
 
 @media (max-width:575.98px) {
-  .timeline.timeline-one .timeline-item {
+  .timeline .timeline-item {
     width: 100%;
     margin-left: 0
   }
 }
 
-.timeline.timeline-one .timeline-item img {
-  margin-bottom: 1.25rem
-}
-
-.timeline.timeline-one .timeline-item:before {
+.timeline .timeline-item:before {
   content: "";
   position: absolute;
   top: 0;
@@ -35,7 +31,25 @@
   border-radius: 50%
 }
 
-.timeline.timeline-one .timeline-item:after {
+
+.timeline .live-investment {
+  &::before {
+    background-color: red;
+    border-color: white;
+    animation: pulse-animation 2s infinite;
+  }
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(red, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba(red, 0);
+  }
+}
+
+.timeline .timeline-item:after {
   content: "";
   position: absolute;
   top: 0;
@@ -47,7 +61,7 @@
   background-color: #dce6f3
 }
 
-.timeline.timeline-one .timeline-item:nth-child(2n+1) {
+.timeline .timeline-item:nth-child(2n+1) {
   margin-left: 0;
   padding-right: 1.5rem;
   padding-left: 0;
@@ -55,40 +69,40 @@
 }
 
 @media (max-width:575.98px) {
-  .timeline.timeline-one .timeline-item:nth-child(2n+1) {
+  .timeline .timeline-item:nth-child(2n+1) {
     padding-right: 0;
     padding-left: 1.5rem;
     text-align: left
   }
 }
 
-.timeline.timeline-one .timeline-item:nth-child(2n+1):after,
-.timeline.timeline-one .timeline-item:nth-child(2n+1):before {
+.timeline .timeline-item:nth-child(2n+1):after,
+.timeline .timeline-item:nth-child(2n+1):before {
   right: 0;
   left: auto
 }
 
 @media (max-width:575.98px) {
 
-  .timeline.timeline-one .timeline-item:nth-child(2n+1):after,
-  .timeline.timeline-one .timeline-item:nth-child(2n+1):before {
+  .timeline .timeline-item:nth-child(2n+1):after,
+  .timeline .timeline-item:nth-child(2n+1):before {
     right: auto;
     left: 0
   }
 }
 
-.timeline.timeline-one .timeline-item:nth-child(2n+1):before {
+.timeline .timeline-item:nth-child(2n+1):before {
   margin-right: -.5rem
 }
 
-.timeline.timeline-one .timeline-item:nth-child(2n+1):after {
+.timeline .timeline-item:nth-child(2n+1):after {
   margin-right: -.0625rem
 }
 
-.timeline.timeline-one.dark .timeline-item:before {
+.timeline.dark .timeline-item:before {
   border: .0625rem solid #b7c3d2
 }
 
-.timeline.timeline-one.dark .timeline-item:after {
+.timeline.dark .timeline-item:after {
   background-color: #b7c3d2
 }

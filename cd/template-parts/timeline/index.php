@@ -1,41 +1,31 @@
-🍕need to be fixed
-<section class="milion">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 mx-auto">
-        <!-- Timeline -->
-        <div class="timeline timeline-one">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item">
-            <span class="icon icon-info icon-lg"><i class="fab fa-react"></i></span>
-            <h5 class="my-3">React</h5>
-            <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan
-              exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum.</p>
-          </div>
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item">
-            <span class="icon icon-secondary"><i class="fab fa-vuejs"></i></span>
-            <h5 class="my-3">VueJs</h5>
-            <p>Bootstrap. Build responsive, mobile-first projects on the web with the world's most popular front-end
-              component library. Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly
-              prototype your ideas.</p>
-          </div>
-          <!-- Timeline Item 3 -->
-          <div class="timeline-item">
-            <span class="icon icon-danger"><i class="fab fa-angular"></i></span>
-            <h5 class="my-3">Angular</h5>
-            <p>AngularJS is a JavaScript-based open-source front-end web application framework mainly maintained by
-              Google and by a community of individuals and corporations to address many of the challenges encountered in
-              developing single-page applications.</p>
-          </div>
-        </div>
-        <!--End of Timeline-->
-      </div>
+<?php if( have_rows('timeline') ): ?>
+<section class="p-4 bg-light rounded">
+  <!-- Timeline -->
+  <div class="timeline">
+    <?php
+    $cd_timeline_counter = 1;
+    while( have_rows('timeline') ): the_row(); ?>
+    <!-- Timeline Item -->
+    <div class="timeline-item <?php if($cd_timeline_counter == 1) { echo 'live-investment'; } ?>">
+      <?php if($cd_timeline_counter == 1) { ?>
+      <p class="text-danger mb-1"><strong><small><?php esc_html_e( 'Investment in progress', 'cd' ); ?></strong></small>
+      </p>
+      <?php } ?>
+      <p class="mb-1"><small><?php the_sub_field('timeline_date'); ?></small></p>
+      <p class="mb-1"><strong><?php the_sub_field('timeline_value'); ?></strong></p>
+
+      <?php
+      $cd_timeline_image = get_sub_field('timeline_image');
+      if( !empty( $cd_timeline_image ) ): ?>
+      <a href="<?php echo esc_url($cd_timeline_image['url']); ?>" class="link-secondary" target="_blank"><small><?php esc_html_e( 'Open image', 'cd' ); ?></small></a>
+      <?php endif; ?>
+
     </div>
-
-
+    <!-- End of Timeline Item -->
+    <?php
+    $cd_timeline_counter++;
+    endwhile; ?>
   </div>
+  <!--End of Timeline-->
 </section>
-
-
-
+<?php endif; ?>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cd\n"
-"POT-Creation-Date: 2021-11-25 11:12+0100\n"
-"PO-Revision-Date: 2021-11-25 11:13+0100\n"
+"POT-Creation-Date: 2021-11-29 18:42+0100\n"
+"PO-Revision-Date: 2021-11-29 18:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -34,8 +34,8 @@ msgstr "Segnala un collegamento interrotto"
 msgid "Go to Home Page"
 msgstr "Vai alla Home Page"
 
-#: 404.php:56 index.php:35 template-parts/banner/referral.php:21
-#: template-parts/header/index.php:82 template-parts/post/knowmore.php:24
+#: 404.php:56 index.php:35 template-parts/banner/referral.php:24
+#: template-parts/header/index.php:101 template-parts/post/knowmore.php:24
 msgid "Continue reading..."
 msgstr "Continua a leggere…"
 
@@ -79,15 +79,11 @@ msgstr "Email "
 msgid "Comment"
 msgstr "Commento"
 
-#: footer.php:6
-msgid "disclaimer"
-msgstr "disclaimer"
-
-#: footer.php:18
+#: footer.php:3
 msgid "Copyright &copy; "
 msgstr "Copyright &copy; "
 
-#: footer.php:23
+#: footer.php:8
 msgid "Submit Feature Request or Bug"
 msgstr "Invia richiesta di funzionalità o bug"
 
@@ -112,11 +108,19 @@ msgstr "Il tuo commento è in attesa di approvazione."
 msgid "%1$s at %2$s"
 msgstr "%1$s a %2$s"
 
-#: index.php:77
+#: index.php:79
+msgid "Updated "
+msgstr "Aggiornato "
+
+#: index.php:79
+msgid " UTC+0:00"
+msgstr " UTC+0:00"
+
+#: index.php:135
 msgid " by "
 msgstr " di "
 
-#: index.php:82
+#: index.php:140
 msgid "Continue reading"
 msgstr "Continua a leggere"
 
@@ -128,46 +132,42 @@ msgstr "Video"
 msgid "Results for: "
 msgstr "Risultati per: "
 
-#: searchform.php:3 template-parts/header/index.php:23
-#: template-parts/header/index.php:59
+#: searchform.php:3 template-parts/header/index.php:29
+#: template-parts/header/index.php:77
 msgid "Search"
 msgstr "Cerca"
 
-#: sidebar.php:22
+#: sidebar.php:27
 msgid "Categories"
 msgstr "Categorie"
 
-#: sidebar.php:36
+#: sidebar.php:41
 msgid "Archives"
 msgstr "Archivi"
 
-#: sidebar.php:44
+#: sidebar.php:49
 msgid "Elsewhere"
 msgstr "Altrove"
 
-#: sidebar.php:47
+#: sidebar.php:52
 msgid "GitHub"
 msgstr "GitHub"
 
-#: sidebar.php:50 template-parts/post/meta.php:21
+#: sidebar.php:55 template-parts/post/meta.php:21
 msgid "Twitter"
 msgstr "Twitter"
 
-#: sidebar.php:53 template-parts/post/meta.php:17
+#: sidebar.php:58 template-parts/post/meta.php:17
 msgid "Facebook"
 msgstr "Facebook"
 
-#: single-referral.php:39
+#: single-referral.php:39 single-referral.php:96
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
-#: single-referral.php:40
+#: single-referral.php:40 single-referral.php:97
 msgid "Copy code"
 msgstr "Copia codice"
-
-#: single-referral.php:58
-msgid "Referral link"
-msgstr "Referral link"
 
 #: template-parts/navigation/paginate.php:16
 msgid "Page: "
@@ -196,6 +196,20 @@ msgstr "LinkedIn"
 #: template-parts/post/meta.php:33
 msgid "Whatsapp"
 msgstr "WhatsApp"
+
+#: template-parts/timeline/index.php:11
+msgid "Investment in progress"
+msgstr "Investimenti in corso"
+
+#: template-parts/timeline/index.php:20
+msgid "Open image"
+msgstr "Apri immagine"
+
+#~ msgid "disclaimer"
+#~ msgstr "disclaimer"
+
+#~ msgid "Referral link"
+#~ msgstr "Referral link"
 
 #~ msgid ""
 #~ "Any information found on this page is not to be considered as financial "
