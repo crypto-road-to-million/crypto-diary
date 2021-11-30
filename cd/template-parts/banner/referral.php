@@ -14,7 +14,7 @@ $the_query = new WP_Query( $args ); ?>
 
 <?php
 if(get_field('background_color') && get_field('text_color')) { ?>
-<div class="row g-0 position-relative mb-5"
+<div class="row g-0 position-relative mb-5 cd__br-8"
   style="background-color:<?php the_field('background_color'); ?>; color:<?php the_field('text_color'); ?>;">
   <div class="col-12">
     <div class="p-4 p-md-5">

@@ -1,5 +1,5 @@
 <?php if( have_rows('timeline') ): ?>
-<div class="p-4 bg-light rounded">
+<div class="p-4 bg-light cd__br-8">
   <!-- Timeline -->
   <div class="timeline">
     <?php

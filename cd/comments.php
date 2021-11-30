@@ -17,7 +17,7 @@ if ( post_password_required() )
     return;
 ?>
 
-<section id="comments" class="comments-area my-5">
+<section id="comments" class="comments-area my-5 p-2">
 
   <?php if ( have_comments() ) : ?>
   <h2 class="comments-title">

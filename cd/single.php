@@ -13,10 +13,10 @@
           <?php
         $categories = get_the_category();
         if ( ! empty( $categories ) ) {
-          echo '<p><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
+          echo '<p class="p-2 mb-0"><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
         } ?>
-          <header>
-            <h1 class="blog-post-title mb-3">
+          <header class="p-2 mb-3">
+            <h1 class="blog-post-title">
               <?php the_title(); ?>
             </h1>
           </header>
@@ -46,13 +46,21 @@
           </div>
           <?php } ?>
 
-          <?php the_content(); ?>
+          <div class="p-2">
+            <?php the_content(); ?>
+          </div>
 
           <?php get_template_part( 'template-parts/post/chapter' ) ?>
 
           <?php wp_link_pages( 'pagelink=Page %' ); ?>
 
-          <?php the_tags(); ?>
+
+          <?php
+          if (has_tag()){ ?>
+            <div class="p-2">
+              <?php the_tags(); ?>
+            </div>
+          <?php } ?>
 
           <?php get_template_part( 'template-parts/post/knowmore' ); ?>
 

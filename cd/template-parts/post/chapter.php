@@ -64,8 +64,8 @@
 </div>
 <?php endif; ?>
 
+<?php if( have_rows('post_chapter') ): ?>
 <div class="pb-3 pb-md-5 mb-3">
-  <?php if( have_rows('post_chapter') ): ?>
   <?php while( have_rows('post_chapter') ): the_row(); ?>
   <div id="<?php the_sub_field('chapter_id'); ?>" class="row g-0 mb-5">
     <div class="col-auto">
@@ -74,5 +74,5 @@
     </div>
   </div>
   <?php endwhile; ?>
-  <?php endif; ?>
 </div>
+<?php endif; ?>

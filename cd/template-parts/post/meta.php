@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between align-items-center mb-3">
+<div class="d-flex justify-content-between align-items-center p-2">
   <div>
     <p class="blog-post-meta mb-0 lh-1"><small><?php the_time( 'F j, Y' ); ?></small></p>
   </div>

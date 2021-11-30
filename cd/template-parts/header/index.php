@@ -10,7 +10,9 @@
         </a>
         <p class="d-block my-1">
           <small>
-            <?php bloginfo( 'description' ); ?>
+            <em>
+              <?php bloginfo( 'description' ); ?>
+            </em>
           </small>
         </p>
       </div>
@@ -53,7 +55,7 @@
   </div>
   <?php } ?>
 
-  <div class="bg-danger text-white py-2 mb-2">
+  <div class="bg-danger text-white py-2 my-2 cd__br-8">
     <div class="row">
       <div class="col-auto text-center mx-auto">
         <p class="px-4 px-md-5 mb-0">
