@@ -1,5 +1,5 @@
 <?php if( have_rows('post_chapter') ): ?>
-<div class="p-2 p-md-4 my-3 bg-light rounded chapter">
+<div class="p-2 p-md-4 my-3 bg-light cd__br-8 chapter">
   <div class="row g-0 flex-nowrap mt-3">
     <div class="col-10 order-2">
       <h5 class="chapter__keypoints-title"><?php esc_html_e( 'The key points', 'cd' ); ?></h5>
