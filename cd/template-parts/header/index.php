@@ -35,7 +35,7 @@ wp_reset_postdata(); ?>
       </div>
       <div class="col-2 col-md-4 d-flex justify-content-end align-items-center">
         <?php if( get_field('about_twitter', 'option') ) { ?>
-        <a href="<?php the_field('about_twitter', 'option') ?>" target="_blank" class="link-secondary">
+        <a href="<?php the_field('about_twitter', 'option') ?>" target="_blank" class="link-secondary" rel="noopener noreferrer">
           <img width="20" height="20"
             src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/twitter.svg" alt="Twitter logo">
         </a>

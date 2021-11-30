@@ -18,7 +18,7 @@ if(get_field('background_color') && get_field('text_color')) { ?>
   style="background-color:<?php the_field('background_color'); ?>; color:<?php the_field('text_color'); ?>;">
   <div class="col-12">
     <div class="p-4">
-      <h5 class="mt-0"><?php the_title(); ?></h5>
+      <h4 class="h5 mt-0"><?php the_title(); ?></h4>
       <?php the_field('referral_short_description'); ?>
       <a href="<?php the_permalink(); ?>"
         class="stretched-link btn btn-danger"><?php esc_html_e( 'Continue reading...', 'cd' ); ?></a>
