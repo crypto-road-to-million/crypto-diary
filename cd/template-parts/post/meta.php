@@ -4,35 +4,40 @@
   </div>
  
   <?php if(!is_archive() && !is_home()) { ?>
-  <div class="dropdown">
-    <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownSharingLink-<?php echo get_the_ID(); ?>"
-      data-bs-toggle="dropdown" aria-expanded="false"><?php esc_html_e( 'Share', 'cd' ); ?></a>
-    <ul class="dropdown-menu" aria-labelledby="dropdownSharingLink-<?php echo get_the_ID(); ?>">
+
+    <div class="chapter__share">
       <?php
       $obj_id = get_queried_object_id();
       $current_url = get_permalink( $obj_id );
       $site_url = $current_url; ?>
-      <li>
-        <a class="dropdown-item"
-          href="http://www.facebook.com/sharer.php?u=<?php echo $site_url; ?>"><?php esc_html_e( 'Facebook', 'cd' ); ?></a>
-      </li>
-      <li>
-        <a class="dropdown-item"
-          href="https://twitter.com/share?url=<?php echo $site_url; ?>"><?php esc_html_e( 'Twitter', 'cd' ); ?></a>
-      </li>
-      <li>
-        <a class="dropdown-item"
-          href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $site_url; ?>"><?php esc_html_e( 'LinkedIn', 'cd' ); ?></a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="<?php
+      <div class="d-flex align-items-center">
+        <a class="link-secondary text-decoration-none"
+          href="http://www.facebook.com/sharer.php?u=<?php echo $site_url; ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/facebook.svg"
+            alt="<?php esc_attr__( 'Share on facebook', 'cd' ); ?>">
+        </a>
+
+        <a class="link-secondary text-decoration-none" href="https://twitter.com/share?url=<?php echo $site_url; ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/twitter.svg"
+            alt="<?php esc_attr__( 'Share on Twitter', 'cd' ); ?>">
+        </a>
+
+        <a class="link-secondary text-decoration-none"
+          href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $site_url; ?>">
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/linkedin.svg"
+            alt="<?php esc_attr__( 'Share on LinkedIn', 'cd' ); ?>">
+        </a>
+
+        <a class="link-secondary text-decoration-none" href="<?php
         if ( wp_is_mobile() ) {
           echo 'whatsapp://send?text=' . $site_url . '';
         } else {
           echo 'https://api.whatsapp.com/send?text=' . $site_url . '';
-        } ?>" data-action="share/whatsapp/share"><?php esc_html_e( 'Whatsapp', 'cd' ); ?></a>
-      </li>
-    </ul>
-  </div>
+        } ?>" data-action="share/whatsapp/share">
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/whatsapp.svg"
+            alt="<?php esc_attr__( 'Share on WhatsApp', 'cd' ); ?>">
+        </a>
+      </div>
+    </div>
   <?php } ?>
 </div>
