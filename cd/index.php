@@ -36,58 +36,55 @@
             </p>
           </div>
         </div>
+
+        <?php
+        if(get_field('crypto_base') && get_field('crypto_target')) {
+          $crypto_base = get_field('crypto_base');
+          $crypto_target = get_field('crypto_target');
+          
+          $url = "https://api.cryptonator.com/api/ticker/{$crypto_base}-{$crypto_target}";
+        
+          $request = wp_remote_get( $url );
+
+          if( is_wp_error( $request ) ) {
+            return false; // Bail early
+          }
+
+          $body = wp_remote_retrieve_body( $request );
+
+          $cd_cryptomator_data = json_decode( $body, true );
+
+          // var_dump($cd_cryptomator_data); ?>
+
         <div class="col-lg-5 offset-lg-1">
           <div class="py-4 py-md-5">
-            <?php
-            if(get_field('crypto_base') && get_field('crypto_target')) {
-              $crypto_base = get_field('crypto_base');
-              $crypto_target = get_field('crypto_target');
-              
-
-              $url = "https://api.cryptonator.com/api/ticker/{$crypto_base}-{$crypto_target}";
-
-              $curl = curl_init($url);
-              curl_setopt($curl, CURLOPT_URL, $url);
-              curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-              $headers = array(
-                "Accept: application/json",
-              );
-              curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-              //for debug only!
-              curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-              curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-              $resp = curl_exec($curl);
-              curl_close($curl);
-
-
-              $data = json_decode($resp, true);
-              // var_dump($data); ?>
-
             <div>
               <div class="font-monospace h3">
                 <?php
                 /*Dynamically generating rows & columns*/
-                echo esc_html( '&#40;' ), $data["ticker"]["base"], esc_html( '&#41;' ), ' ';
-                echo $data["ticker"]["price"], ' ';
-                echo $data["ticker"]["target"]; ?>
+                echo esc_html( '&#40;' ), $cd_cryptomator_data["ticker"]["base"], esc_html( '&#41;' ), ' ';
+                echo $cd_cryptomator_data["ticker"]["price"], ' ';
+                echo $cd_cryptomator_data["ticker"]["target"]; ?>
               </div>
               <div>
                 <small>
                   <?php
-                  echo esc_html_e( 'Updated ', 'cd' ), date("j F Y H:i:s", $data["timestamp"]), esc_html_e( ' UTC+0:00', 'cd' ); ?>
+                  echo esc_html_e( 'Updated ', 'cd' ), date("j F Y H:i:s", $cd_cryptomator_data["timestamp"]), esc_html_e( ' UTC+0:00', 'cd' ); ?>
+                </small>
+              </div>
+              <div>
+                <small>
+                  <p>
+                    <?php esc_html_e( 'Powered by ', 'cd' ); ?><a class="link-light"
+                      href="https://www.cryptonator.com/"><?php esc_html_e( 'Cryptonator', 'cd' ); ?></a>
+                  </p>
                 </small>
               </div>
             </div>
-            <?php } ?>
-
-
-
           </div>
-
-
         </div>
+        <?php } ?>
+
       </div>
       <?php
       if(get_field('featured_image_credit')){ ?>
