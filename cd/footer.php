@@ -5,7 +5,7 @@
     <?php if(get_field('github_issue_url', 'option')) { ?>
     <p>
       <a class="text-decoration-none link-light fw-bold"
-        href="<?php the_field('github_issue_url', 'option'); ?>"><?php esc_html_e( 'Submit Feature Request or Bug', 'cd' ); ?></a>
+        href="<?php the_field('github_issue_url', 'option'); ?>" target="_blank"><?php esc_html_e( 'Submit Feature Request or Bug', 'cd' ); ?></a>
     </p>
     <?php } ?>
 
