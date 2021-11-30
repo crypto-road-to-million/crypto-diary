@@ -1,5 +1,5 @@
 <?php if( have_rows('timeline') ): ?>
-<section class="p-4 bg-light rounded">
+<div class="p-4 bg-light rounded">
   <!-- Timeline -->
   <div class="timeline">
     <?php
@@ -17,7 +17,8 @@
       <?php
       $cd_timeline_image = get_sub_field('timeline_image');
       if( !empty( $cd_timeline_image ) ): ?>
-      <a href="<?php echo esc_url($cd_timeline_image['url']); ?>" class="link-secondary" target="_blank"><small><?php esc_html_e( 'Open image', 'cd' ); ?></small></a>
+      <a href="<?php echo esc_url($cd_timeline_image['url']); ?>" class="link-secondary"
+        target="_blank"><small><?php esc_html_e( 'Open image', 'cd' ); ?></small></a>
       <?php endif; ?>
 
     </div>
@@ -27,5 +28,5 @@
     endwhile; ?>
   </div>
   <!--End of Timeline-->
-</section>
+</div>
 <?php endif; ?>

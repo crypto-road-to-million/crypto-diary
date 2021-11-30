@@ -21,7 +21,7 @@
     $cd_img_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cd_post_img' );
   } ?>
 
-    <article <?php post_class('mb-4'); ?>>
+    <article <?php post_class('mb-2'); ?>>
       <div class="row g-0 p-4 p-md-5 text-white <?php if (!has_post_thumbnail( $post->ID ) ) { echo 'bg-dark'; } ?>"
         <?php if (has_post_thumbnail( $post->ID )) { ?>
         style="background: linear-gradient(rgba(  0,0,0,.3), rgba(0,0,0,.7)), url(<?php echo $cd_img_attributes[0]; ?>); background-size: cover; background-position: center center;"

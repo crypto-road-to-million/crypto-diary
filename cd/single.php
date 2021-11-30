@@ -39,6 +39,13 @@
           </div>
           <?php } ?>
 
+          <?php
+          if(is_single()) { ?>
+          <div class="d-xxl-none my-4">
+            <?php get_template_part( 'template-parts/timeline/index' ); ?>
+          </div>
+          <?php } ?>
+
           <?php the_content(); ?>
 
           <?php get_template_part( 'template-parts/post/chapter' ) ?>
