@@ -148,9 +148,9 @@
 
     <div class="row">
       <div class="col-md-8">
-        <h3 class="py-4 mb-4 fst-italic border-bottom">
+        <h2 class="h3 py-4 mb-4 fst-italic border-bottom">
           <?php bloginfo( 'description' ); ?>
-        </h3>
+        </h2>
         <?php
       $the_query = new WP_Query( array( 'post__not_in' => get_option( 'sticky_posts' ) ) );
       $count = 0;
