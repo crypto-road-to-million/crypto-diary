@@ -10,18 +10,29 @@
 
         <article <?php post_class('blog-post'); ?>>
 
-          <header>
-            <h1 class="blog-post-title mb-3">
+        <header class="p-2 mb-3">
+            <h1 class="blog-post-title">
               <?php the_title(); ?>
             </h1>
           </header>
+
           <?php get_template_part( 'template-parts/post/meta' ); ?>
 
           <?php
           the_post_thumbnail( 'cd_post_img', array(
             'class' => 'img-fluid mb-3',
             'alt'   => get_the_title()
-          ) ) ?>
+          ) );
+
+          if(get_field('featured_image_credit')){ ?>
+          <div class="mt-1">
+            <small>
+              <em>
+                <?php the_field('featured_image_credit'); ?>
+              </em>
+            </small>
+          </div>
+          <?php } ?>
 
           <?php if(get_field('referral_code') || get_field('referral_direct_link')) { ?>
           <div class="p-4 p-md-5 bg-light mb-3">

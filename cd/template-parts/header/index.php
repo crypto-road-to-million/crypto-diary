@@ -1,3 +1,20 @@
+<?php
+$featured_posts = get_field('marquee_item', 'option');
+if( $featured_posts ): ?>
+<div class="marquee__container bg-dark">
+  <p class="node-marquee">
+    <?php foreach( $featured_posts as $post ):
+      // Setup this post for WP functions (variable must be named $post).
+      setup_postdata($post); ?>
+    <a class="text-white text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+    <?php endforeach; ?>
+  </p>
+</div>
+<?php
+// Reset the global post object so that the rest of the page works correctly.
+wp_reset_postdata(); ?>
+<?php endif; ?>
+
 <div class="container">
   <header class="blog-header py-2">
     <div class="row flex-nowrap justify-content-between align-items-center">
@@ -55,15 +72,13 @@
   </div>
   <?php } ?>
 
-  <div class="bg-danger text-white py-2 my-2 cd__br-8">
-    <div class="row">
-      <div class="col-auto text-center mx-auto">
-        <p class="px-4 px-md-5 mb-0">
-          <small>
-            <?php the_field('disclaimer_text', 'option'); ?>
-          </small>
-        </p>
-      </div>
+  <div class="row g-0 mb-2">
+    <div class="col-12 text-center mx-auto bg-danger text-white py-2 cd__br-8">
+      <p class="px-4 mb-0">
+        <small>
+          <?php the_field('disclaimer_text', 'option'); ?>
+        </small>
+      </p>
     </div>
   </div>
 </div>
@@ -118,22 +133,3 @@
     </div>
   </div>
 </div>
-
-<?php
-$featured_posts = get_field('marquee_item', 'option');
-if( $featured_posts ): ?>
-<div class="container">
-  <div class="marquee__container bg-dark">
-    <p class="node-marquee">
-      <?php foreach( $featured_posts as $post ):
-      // Setup this post for WP functions (variable must be named $post).
-      setup_postdata($post); ?>
-      <a class="text-white text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-      <?php endforeach; ?>
-    </p>
-  </div>
-</div>
-<?php
-// Reset the global post object so that the rest of the page works correctly.
-wp_reset_postdata(); ?>
-<?php endif; ?>

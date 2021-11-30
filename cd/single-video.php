@@ -10,8 +10,8 @@
 
         <article <?php post_class('blog-post'); ?>>
 
-          <header>
-            <h1 class="blog-post-title mb-3">
+        <header class="p-2 mb-3">
+            <h1 class="blog-post-title">
               <?php the_title(); ?>
             </h1>
           </header>
@@ -24,7 +24,9 @@
           </div>
           <?php } ?>
 
-          <?php the_content(); ?>
+          <div class="p-2">
+            <?php the_content(); ?>
+          </div>
 
         </article>
 

@@ -7,7 +7,7 @@
 
         <?php
         // single_cat_title();
-        the_archive_title( '<h1 class="py-4 mb-4 fst-italic border-bottom">', '</h1>' ); ?>
+        the_archive_title( '<h1 class="px-2 py-4 mb-4 fst-italic border-bottom">', '</h1>' ); ?>
 
         <?php
 
@@ -16,16 +16,11 @@
       $count++; ?>
 
         <article <?php post_class('blog-post'); ?>>
-          <?php     
-        $categories = get_the_category();
-        if ( ! empty( $categories ) ) {
-          echo '<p><a class="link-secondary text-decoration-none fw-bold" href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a></p>';
-        } ?>
-          <h2 class="blog-post-title mb-3">
-            <a class="text-decoration-none" href="<?php the_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </h2>
+
+          <?php get_template_part( 'template-parts/post/category' ); ?>
+
+          <?php get_template_part( 'template-parts/post/title' ); ?>
+
           <?php get_template_part( 'template-parts/post/meta' ); ?>
 
           <?php if (has_post_thumbnail( $post->ID ) ){ ?>
@@ -38,16 +33,19 @@
           <?php } ?>
           <?php
       if(get_field('featured_image_credit')){ ?>
-      <div class="mt-1">
-        <small>
-          <em>
-            <?php the_field('featured_image_credit'); ?>
-          </em>
-        </small>
-      </div>
-      <?php } ?>
+          <div class="mt-1">
+            <small>
+              <em>
+                <?php the_field('featured_image_credit'); ?>
+              </em>
+            </small>
+          </div>
+          <?php } ?>
 
-          <?php the_excerpt(); ?>
+          <div class="p-2">
+            <?php the_excerpt(); ?>
+          </div>
+
         </article>
 
         <?php

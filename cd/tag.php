@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <h1 class="py-4 mb-4 fst-italic border-bottom">
+        <h1 class="px-2 py-4 mb-4 fst-italic border-bottom">
           <?php single_cat_title(); ?>
         </h1>
         <?php
@@ -14,16 +14,8 @@
       $count++; ?>
 
         <article <?php post_class('blog-post'); ?>>
-          <?php     
-        $categories = get_the_category();
-        if ( ! empty( $categories ) ) {
-          echo '<p><a class="link-secondary text-decoration-none fw-bold" href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a></p>';
-        } ?>
-          <h2 class="blog-post-title mb-3">
-            <a class="text-decoration-none" href="<?php the_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </h2>
+        <?php get_template_part( 'template-parts/post/category' ); ?>
+        <?php get_template_part( 'template-parts/post/title' ); ?>
           <?php get_template_part( 'template-parts/post/meta' ); ?>
 
           <?php if (has_post_thumbnail( $post->ID ) ){ ?>
@@ -35,7 +27,9 @@
           </a>
           <?php } ?>
 
-          <?php the_excerpt(); ?>
+          <div class="p-2">
+            <?php the_excerpt(); ?>
+          </div>
         </article>
 
         <?php

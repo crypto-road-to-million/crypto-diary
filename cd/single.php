@@ -10,11 +10,8 @@
 
         <article <?php post_class('blog-post'); ?>>
 
-          <?php
-        $categories = get_the_category();
-        if ( ! empty( $categories ) ) {
-          echo '<p class="p-2 mb-0"><span class="text-secondary fw-bold">' . esc_html( $categories[0]->name ) . '</span></p>';
-        } ?>
+        <?php get_template_part( 'template-parts/post/category' ); ?>
+
           <header class="p-2 mb-3">
             <h1 class="blog-post-title">
               <?php the_title(); ?>
@@ -26,9 +23,8 @@
           <?php the_post_thumbnail( 'cd_post_img', array(
             'class' => 'img-fluid',
             'alt'   => get_the_title()
-          ) ) ?>
-
-          <?php
+          ) );
+          
           if(get_field('featured_image_credit')){ ?>
           <div class="mt-1">
             <small>

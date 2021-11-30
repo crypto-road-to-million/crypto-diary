@@ -4,8 +4,8 @@
     <div class="row g-0">
       <div class="col-lg-8 mx-auto">
         <article>
-          <div class="p-3 p-lg-4 p-xxl-5 my-3 my-lg-4 my-xxl-5">
-            <div class="p-3 p-lg-4 p-xxl-5">
+          <div class="p-2 p-md-4 my-2 my-lg-4">
+            
               <div class="text-center">
                 <h1 class="mb-3"><?php esc_html_e( 'Page Not Found', 'cd' ); ?></h1>
                 <h2 class="h4 fw-normal mb-5">
@@ -17,10 +17,10 @@
                 <small>
                   <div class="d-flex justify-content-center my-2">
 
-                    <a class="mx-3"
+                    <a class="mx-2"
                       href="<?php the_field('github_issue_url', 'option'); ?>"><?php esc_html_e( 'Report a broken link', 'cd' ); ?></a>
 
-                    <a class="mx-3"
+                    <a class="mx-2"
                       href="<?php echo esc_url_raw( home_url() ); ?>"><?php esc_html_e( 'Go to Home Page', 'cd' ); ?></a>
                   </div>
                 </small>
@@ -66,7 +66,6 @@
                 </small>
               </section>
 
-            </div>
           </div>
         </article>
       </div>

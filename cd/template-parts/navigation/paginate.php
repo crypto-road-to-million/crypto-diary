@@ -3,7 +3,7 @@ $cd_paginate_query = $wp_query;
 ?>
 
 
-<nav class="blog-pagination" aria-label="Pagination">
+<nav class="blog-pagination p-2" aria-label="Pagination">
 
   <?php
   if(get_previous_posts_link()) {
