@@ -10,18 +10,15 @@
           <span class="d-block h6">
             <?php bloginfo( 'description' ); ?>
           </span>
-
         </a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-
         <?php if( get_field('about_twitter', 'option') ) { ?>
         <a href="<?php the_field('about_twitter', 'option') ?>" target="_blank" class="link-secondary">
-          <img class="blog-header__social-icon"
+          <img width="20" height="20"
             src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/svg/twitter.svg" alt="Twitter logo">
         </a>
         <?php } ?>
-
         <a id="js-modalSearchBtn" class="link-secondary d-none d-md-block" href="javascript:void(0);"
           aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"

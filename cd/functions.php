@@ -251,27 +251,26 @@ add_filter('pre_get_posts', 'cd_filter_search');
 
 
 
-
-
 /**
  * Yes, we are hooking Google Analytics code.
  */
 if(! function_exists('cd_add_gtag_to_head') ) {
     function cd_add_gtag_to_head() { ?>
-    
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC650RPMNT"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-CC650RPMNT', { 'anonymize_ip': true });
-        </script>
-    <?php } 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CC650RPMNT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CC650RPMNT', {
+        'anonymize_ip': true
+    });
+</script>
+<?php } 
 }
 add_action('wp_head', 'cd_add_gtag_to_head');
-  
-  
-  
-  

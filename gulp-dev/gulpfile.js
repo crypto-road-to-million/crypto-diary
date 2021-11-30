@@ -17,6 +17,7 @@ const jshint = require('gulp-jshint');
 const stylish = require('jshint-stylish');
 const browserSync = require('browser-sync').create();
 const del = require('del');
+const webp = require('gulp-webp');
 
 const vendors = ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map', 'node_modules/node-marquee/dist/cdn/index.js'];
 
@@ -74,6 +75,7 @@ function imgTask(){
   return src(img + '**/*.{jpg,JPG,png}')
   .pipe(newer(img))
   .pipe(image())
+  .pipe(webp())
   .pipe(dest(root + 'assets/images/'));
  }
 
